@@ -1,0 +1,73 @@
+* {
+	margin: 0;
+	list-style-type: none;
+
+}
+
+/* --------------------- <HEADER STYLE> --------------------- */
+/**************************************************************/
+.main-header {
+	text-align: center;
+	background: blue;
+	color: white;
+	padding: 15px;
+	box-shadow: 0 0 25px #000;
+}
+.main-left-nav {
+	background: blue;
+	width: 250px;
+	margin-top: 70px;
+	box-shadow: 0 0 25px #000;
+	text-align: center;
+	transition: 0.2s;
+}
+.main-left-nav h3 {
+	color: #000;
+	padding: 10px;
+	background: yellow;
+}
+.main-left-nav a {
+	text-decoration: none;
+	color: white;
+	font-size: 18px;
+	font-family: monospace;
+	 
+}
+.main-left-nav ul {
+	padding: 20px 0;
+
+}
+.main-left-nav li {
+	margin: 5px 0;
+}
+.nav-header {
+	position: relative;
+}
+.nav-header p {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	font-family: monospace;
+	font-size: 25px;
+	background: blue;
+	padding: 0 7px;
+	color: white;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #000;
+	text-align: center;
+	cursor: pointer;
+}
+.btn {
+	position: fixed;
+	left: 0;
+	top: 170px;
+	font-family: monospace;
+	font-size: 35px;
+	background: blue;
+	padding: 0 7px;
+	color: white;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #000;
+	text-align: center;
+	cursor: pointer;
+}

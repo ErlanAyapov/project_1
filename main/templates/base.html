@@ -8,10 +8,54 @@
 </head>
 <body>
 
-	
+	<header>
+		<div class="main-header">
+			<h1>Qazaqstan tarihy</h1>
+		</div>
+	</header>
+
+	<main>
+		<div class="main-left-nav">
+			<div class="nav-header">
+				<h3>Нұсқаулық</h3>
+				<p id="close_menu" ><</p>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="">Басты парақ</a></li>
+					<li><a href="">Жаңалықтар</a></li>
+					<li><a href="">Тест тапсыру</a></li>
+					<li><a href="">Аккаунт</a></li>
+					<li><a href="">Досымды қос</a></li>
+					<li><a href="">Дайындық</a></li>
+					<li><a href="">Серіктес болу</a></li>
+					<li><a href="">Қолдау көрсету</a></li>
+					 
+				</ul>
+			</nav>
+		</div>
+
+		<div class="ds">
+			<p class="btn" id="open_menu" style="display:none">></p>
+		</div>
+
+		{% block content %}
+		{% endblock %}
+	</main>
 
 
-	{% block content %}
-	{% endblock %}
+	<script type="text/javascript" src="{% static 'scripts/jquery-3.6.0.min.js' %}"></script>
+	<script type="text/javascript">
+		jQuery('#close_menu').on('click', function() {
+			$(".main-left-nav").css("position","absolute")
+			$(".main-left-nav").css("left", '-260px');
+			$("#open_menu").css("display", 'block');	
+		});
+		jQuery('#open_menu').on('click', function() {
+			$(".main-left-nav").css("position","absolute")
+			$(".main-left-nav").css("left", '0');
+			$("#open_menu").css("display", 'none');	
+		});
+	</script>
 </body>
 </html>
