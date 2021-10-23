@@ -5,17 +5,21 @@
 	<meta charset="utf-8">
 	<title>Tarih</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
-
 	<header>
 		<div class="main-header">
 			<h1>Qazaqstan tarihy</h1>
 		</div>
 	</header>
-
 	<main>
-		<div class="main-left-nav">
+		
+		{% block content %}
+		{% endblock %}
+	</main>
+	<div class="main-left-nav">
 			<div class="nav-header">
 				<h3>Нұсқаулық</h3>
 				<p id="close_menu" ><</p>
@@ -34,16 +38,9 @@
 				</ul>
 			</nav>
 		</div>
-
 		<div class="ds">
-			<p class="btn" id="open_menu" style="display:none">></p>
+			<p class="btn" id="open_menu" >></p>
 		</div>
-
-		{% block content %}
-		{% endblock %}
-	</main>
-
-
 	<script type="text/javascript" src="{% static 'scripts/jquery-3.6.0.min.js' %}"></script>
 	<script type="text/javascript">
 		jQuery('#close_menu').on('click', function() {
@@ -55,6 +52,9 @@
 			$(".main-left-nav").css("position","absolute")
 			$(".main-left-nav").css("left", '0');
 			$("#open_menu").css("display", 'none');	
+		});
+		jQuery('#run_btn').on('click', function() {
+			make_question();					
 		});
 	</script>
 </body>

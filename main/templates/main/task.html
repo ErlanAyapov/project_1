@@ -1,0 +1,132 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="main-container">
+		<div class="main-block">
+			<h1>Сұрақтар</h1>
+			<div id="question">Сынақты бастау үшін алға батырмасын бас ;)</div>
+			<div class="question-block">
+				<input type="button" name="" id="answer_1" value="Жауап 1" onclick="check_1()">
+				<input type="button" name="" id="answer_2" value="Жауап 2" onclick="check_2()">
+				<input type="button" name="" id="answer_3" value="Жауап 3" onclick="check_3()">
+				<input type="button" name="" id="answer_4" value="Жауап 4" onclick="check_4()">	
+			</div>
+			
+			<script type="text/javascript">
+				var questions = [];
+				var answers = [];
+				var last_questions = [];
+				var tasks = []
+				var run = true;
+				var question_id;
+
+				// {% for object in object_list %}
+				var question = '{{ object.question }}';
+				var answer = '{{ object.answer }}';
+				questions.push(question)
+				answers.push(answer)
+				// {% endfor %}
+				function getRandomInt(max) {
+				  return Math.floor(Math.random() * max);
+				}
+				function getRandomArbitrary(min, max) {
+				  return 
+				}
+				function make_question() {
+					while (run) {
+				  		question_id = getRandomInt(questions.length);
+				  		if (!last_questions.includes(question_id)) {
+				  			last_questions.push(question_id);
+				  			run = false;
+				  		}
+				  	}
+
+				  	var fake_answer_1 = getRandomInt(answers.length);
+				  	var fake_answer_2 = getRandomInt(answers.length);
+				  	var fake_answer_3 = getRandomInt(answers.length);
+					var cs = getRandomInt(3);
+				  	
+				  	if (cs == 1){
+				  		document.getElementById('answer_1').value = answers[fake_answer_1];
+					  	document.getElementById('answer_2').value = answers[fake_answer_2];
+					  	document.getElementById('answer_3').value = answers[fake_answer_3];
+					  	document.getElementById('answer_4').value = answers[question_id];
+				  	} else if (cs == 2) {
+				  		document.getElementById('answer_1').value = answers[fake_answer_1];
+					  	document.getElementById('answer_2').value = answers[fake_answer_2];
+					  	document.getElementById('answer_4').value = answers[fake_answer_3];
+					  	document.getElementById('answer_3').value = answers[question_id];
+				  	} else if (cs == 3) {
+				  		document.getElementById('answer_1').value = answers[fake_answer_1];
+					  	document.getElementById('answer_4').value = answers[fake_answer_2];
+					  	document.getElementById('answer_3').value = answers[fake_answer_3];
+					  	document.getElementById('answer_2').value = answers[question_id];
+				  	} else {
+				  		document.getElementById('answer_4').value = answers[fake_answer_1];
+					  	document.getElementById('answer_2').value = answers[fake_answer_2];
+					  	document.getElementById('answer_3').value = answers[fake_answer_3];
+					  	document.getElementById('answer_1').value = answers[question_id];
+				  	}
+				  	
+
+				  	var question_el = document.getElementById('question');
+				  	question_el.innerHTML = (questions[question_id]) + ' ?';
+					run = true
+				};		
+
+				function check_1() {
+
+					if (document.getElementById('answer_1').value == answers[question_id]) {
+						alert('Дұрыс!');	
+						make_question();
+					}
+					else {
+						alert('Дұрыс емес :(')
+					}
+					 
+				}
+				function check_2() { 
+					if (document.getElementById('answer_2').value == answers[question_id]) {
+						alert('Дұрыс!');	
+						make_question();
+					}
+					else {
+						alert('Дұрыс емес :(')
+					}
+				}
+				function check_3() { 
+					if (document.getElementById('answer_3').value == answers[question_id]) {
+						alert('Дұрыс!');	
+						make_question();
+					}
+					else {
+						alert('Дұрыс емес :(')
+					}
+				}
+				function check_4() { 
+					if (document.getElementById('answer_4').value == answers[question_id]) {
+						alert('Дұрыс!');	
+						make_question();
+					}
+					else {
+						alert('Дұрыс емес :(')
+					}
+				}
+
+				console.log();
+			</script>
+			
+
+		
+		</div>
+		<div class="next-btn">
+			<input type="button" name="" id="run_btn" value="Алға">
+		</div>
+	</div>
+
+	
+
+	
+	
+{% endblock %}
