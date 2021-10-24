@@ -4,6 +4,7 @@
 {% block content %}
 	<div class="main-container">
 		<div class="main-block">
+			<div id="ds"></div>
 			<h1>Сұрақтар</h1>
 			<div id="question">Сынақты бастау үшін алға батырмасын бас ;)</div>
 			<div class="question-block">
@@ -12,12 +13,24 @@
 				<input type="button" name="" id="answer_3" value="Жауап 3" onclick="check_3()">
 				<input type="button" name="" id="answer_4" value="Жауап 4" onclick="check_4()">	
 			</div>
-			
+
+
+			<div class="result-block">
+				<div class="res" id="all_questions">0</div>
+				<div class="res" id="true_questions">0</div>
+				<div class="res" id="false_questions">-0</div>
+			</div>
+		</div>
+		<div class="next-btn">
+			<input type="button" name="" id="run_btn" value="Алға">
+		</div>
 			<script type="text/javascript">
 				var questions = [];
 				var answers = [];
 				var last_questions = [];
-				var tasks = []
+				var true_qestions = [];
+				var false_questions = [];
+				var tasks = [];
 				var run = true;
 				var question_id;
 
@@ -72,58 +85,73 @@
 
 				  	var question_el = document.getElementById('question');
 				  	question_el.innerHTML = (questions[question_id]) + ' ?';
+				  	document.getElementById('true_questions').innerHTML = true_qestions.length
+				  	document.getElementById('all_questions').innerHTML = last_questions.length
+				  	document.getElementById('false_questions').innerHTML = '-' + false_questions.length
+
 					run = true
 				};		
 
 				function check_1() {
 
 					if (document.getElementById('answer_1').value == answers[question_id]) {
-						alert('Дұрыс!');	
+						alert('Дұрыс!');
+						true_qestions.push(question_id)	
 						make_question();
 					}
 					else {
+						false_questions.push(question_id)	
+						make_question();
 						alert('Дұрыс емес :(')
 					}
 					 
 				}
 				function check_2() { 
 					if (document.getElementById('answer_2').value == answers[question_id]) {
+						true_qestions.push(question_id)	
 						alert('Дұрыс!');	
 						make_question();
 					}
 					else {
+						false_questions.push(question_id)	
+						make_question();
 						alert('Дұрыс емес :(')
 					}
 				}
 				function check_3() { 
 					if (document.getElementById('answer_3').value == answers[question_id]) {
+						true_qestions.push(question_id)	
 						alert('Дұрыс!');	
 						make_question();
 					}
 					else {
+						false_questions.push(question_id)	
+						make_question();
 						alert('Дұрыс емес :(')
 					}
 				}
 				function check_4() { 
 					if (document.getElementById('answer_4').value == answers[question_id]) {
+						true_qestions.push(question_id)	
 						alert('Дұрыс!');	
 						make_question();
 					}
 					else {
+						false_questions.push(question_id)	
+						make_question();
 						alert('Дұрыс емес :(')
 					}
 				}
 
+	 
 				console.log();
 			</script>
 			
 
 		
-		</div>
-		<div class="next-btn">
-			<input type="button" name="" id="run_btn" value="Алға">
-		</div>
+		
 	</div>
+	 
 
 	
 

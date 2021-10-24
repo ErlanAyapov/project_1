@@ -9,6 +9,14 @@
 
 </head>
 <body>
+	<style type="text/css">
+		body {
+			background: url('{% static "image/bg.jpg" %}') no-repeat top center fixed;
+			background-repeat: no-repeat;
+			background-size: cover;
+
+		}
+	</style>
 	<header>
 		<div class="main-header">
 			<h1>Qazaqstan tarihy</h1>
@@ -21,7 +29,7 @@
 	</main>
 	<div class="main-left-nav">
 			<div class="nav-header">
-				<h3>Нұсқаулық</h3>
+				<h3>Alternative Qz</h3>
 				<p id="close_menu" ><</p>
 			</div>
 			<nav>
@@ -33,7 +41,7 @@
 					<li><a href="">Досымды қос</a></li>
 					<li><a href="">Дайындық</a></li>
 					<li><a href="">Серіктес болу</a></li>
-					<li><a href="">Қолдау көрсету</a></li>
+					<li><a href="https://www.instagram.com/erlans.kingdom/" target="_blank">Instagram</a></li>
 					 
 				</ul>
 			</nav>
@@ -44,18 +52,20 @@
 	<script type="text/javascript" src="{% static 'scripts/jquery-3.6.0.min.js' %}"></script>
 	<script type="text/javascript">
 		jQuery('#close_menu').on('click', function() {
-			$(".main-left-nav").css("position","absolute")
+			$(".main-left-nav").css("position","fixed")
 			$(".main-left-nav").css("left", '-260px');
 			$("#open_menu").css("display", 'block');	
 		});
 		jQuery('#open_menu').on('click', function() {
-			$(".main-left-nav").css("position","absolute")
+			$(".main-left-nav").css("position","fixed")
 			$(".main-left-nav").css("left", '0');
 			$("#open_menu").css("display", 'none');	
 		});
 		jQuery('#run_btn').on('click', function() {
+			false_questions.push(question_id)
 			make_question();					
 		});
+		
 	</script>
 </body>
 </html>
