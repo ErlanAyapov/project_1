@@ -25,7 +25,7 @@ class Data():
 	answers = {}
 	gh = 0
 	bh = 0
-	with open(r"D:\Django\tarih\project\main\data.txt" , encoding='utf-8') as f:
+	with open("data.txt" , encoding='utf-8') as f:
 
 		for line in f:
 			gh += 1
