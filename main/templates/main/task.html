@@ -167,10 +167,16 @@
 						alert('Дұрыс!');
 						true_qestions.push(question_id)	
 						make_question();
+						document.getElementById('block_1').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_2').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_3').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_4').style = 'box-shadow: 0 0 5px cyan';
 					}
 					else {
 						false_questions.push(question_id)	
-						make_question();
+
+						
+						document.getElementById('block_1').style = 'box-shadow: 0 0 5px red,0 0 15px red;';
 						alert('Дұрыс емес :(')
 					}
 					 
@@ -180,10 +186,14 @@
 						true_qestions.push(question_id)	
 						alert('Дұрыс!');	
 						make_question();
+						document.getElementById('block_1').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_2').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_3').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_4').style = 'box-shadow: 0 0 5px cyan';
 					}
 					else {
 						false_questions.push(question_id)	
-						make_question();
+						document.getElementById('block_2').style = 'box-shadow: 0 0 5px red,0 0 15px red;';
 						alert('Дұрыс емес :(')
 					}
 				}
@@ -192,10 +202,14 @@
 						true_qestions.push(question_id)	
 						alert('Дұрыс!');	
 						make_question();
+						document.getElementById('block_1').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_2').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_3').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_4').style = 'box-shadow: 0 0 5px cyan';
 					}
 					else {
 						false_questions.push(question_id)	
-						make_question();
+						document.getElementById('block_3').style = 'box-shadow: 0 0 5px red,0 0 15px red;';
 						alert('Дұрыс емес :(')
 					}
 				}
@@ -204,10 +218,14 @@
 						true_qestions.push(question_id)	
 						alert('Дұрыс!');	
 						make_question();
+						document.getElementById('block_1').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_2').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_3').style = 'box-shadow: 0 0 5px cyan';
+						document.getElementById('block_4').style = 'box-shadow: 0 0 5px cyan';
 					}
 					else {
 						false_questions.push(question_id)	
-						make_question();
+						document.getElementById('block_4').style = 'box-shadow: 0 0 5px red,0 0 15px red;';
 						alert('Дұрыс емес :(')
 					}
 				}

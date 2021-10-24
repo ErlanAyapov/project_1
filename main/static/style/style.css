@@ -112,7 +112,7 @@
 }
 .answers {
 	max-width: 90%;
-	background: rgba(0, 0, 0, 1.0);
+	background: rgba(0, 0, 0, 0.5);
 	color: #fff;
 	margin: auto;
 	margin-top: 15px;
@@ -123,9 +123,13 @@
 	cursor: pointer;
 	border-radius: 5px;
 	transition: 0.2s;
+	box-shadow: 0 0 5px cyan;
 }
 .answers:hover {
 	background: rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 5px cyan,
+				0 0 15px cyan;
+
 
 }
 /*#block_1 {
