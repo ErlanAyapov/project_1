@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from .models import Question
-import os
+# import os
 
 
 class MainView(ListView):
@@ -9,8 +9,8 @@ class MainView(ListView):
 	ordering = '-id'
 	template_name = 'main/task.html'
 
-print(os.path.abspath(os.curdir))
-'''
+# print(os.path.abspath(os.curdir))
+# '''
 
 # |=================================|
 # | Бұл код ақпараттарды 'data.txt' |
@@ -25,7 +25,7 @@ class Data():
 	answers = {}
 	gh = 0
 	bh = 0
-	with open("data.txt" , encoding='utf-8') as f:
+	with open(r"/app/main/data.txt" , encoding='utf-8') as f:
 
 		for line in f:
 			gh += 1
@@ -51,4 +51,4 @@ class Data():
 		# print(answers['task_' + str(bh)].splitlines()).join(answers['task_' + str(bh)].splitlines())
 
 
-'''
+# '''
