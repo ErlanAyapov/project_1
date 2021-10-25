@@ -14,12 +14,11 @@
 			background: url('{% static "image/bg.jpg" %}') no-repeat top center fixed;
 			background-repeat: no-repeat;
 			background-size: cover;
-
 		}
 	</style>
 	<header>
 		<div class="main-header">
-			<h1>Qazaqstan tarihy</h1>
+			<h1>{% block page_title %}Electro Eyes{% endblock %}</h1>
 		</div>
 	</header>
 	<main>
@@ -27,16 +26,22 @@
 		{% block content %}
 		{% endblock %}
 	</main>
+
+	<footer>
+		{% block footer %}
+		{% endblock %}
+	</footer>
+
 	<div class="main-left-nav">
 			<div class="nav-header">
-				<h3>Alternative Qz</h3>
+				<h3>Нұсқаулықтар</h3>
 				<p id="close_menu" ><</p>
 			</div>
 			<nav>
 				<ul>
-					<li><a href="#/">Басты парақ</a></li>
+					<li><a href="{% url 'main' %}">Басты парақ</a></li>
 					<li><a href="#/">Жаңалықтар</a></li>
-					<li><a href="#/">Тест тапсыру</a></li>
+					<li><a href="{% url 'q_tarih' %}">Тест тапсыру</a></li>
 					<li><a href="#/">Аккаунт</a></li>
 					<li><a href="#/">Досымды қос</a></li>
 					<li><a href="#/">Дайындық</a></li>
@@ -51,6 +56,8 @@
 			<p class="btn" id="open_menu" >></p>
 		</div>
 	<script type="text/javascript" src="{% static 'scripts/jquery-3.6.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'scripts/qz_tarih.js' %}"></script>
+
 	<script type="text/javascript">
 		jQuery('#close_menu').on('click', function() {
 			$(".main-left-nav").css("position","fixed")

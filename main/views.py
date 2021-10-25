@@ -7,7 +7,7 @@ from .models import Question
 class MainView(ListView):
 	model = Question
 	ordering = '-id'
-	template_name = 'main/task.html'
+	template_name = 'main/index.html'
 
 # print(os.path.abspath(os.curdir))
 '''

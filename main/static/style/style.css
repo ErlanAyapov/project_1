@@ -82,10 +82,10 @@
 }
 .about-text {
 	position: absolute;
-	bottom: 5px;
+	bottom: 10px;
 	color: white;
 	font-size: 12px;
-	left: 10px;
+	left: 40px;
 }
 .about-text a {
 	font-size: 12px;
@@ -139,18 +139,7 @@
 	background: rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 5px cyan,
 				0 0 15px cyan;
-
-
 }
-/*#block_1 {
-	background: yellow;
-}#block_2 {
-	background: gray;
-}#block_3 {
-	background: red;
-}#block_4 {
-	background: blue;
-}*/
 .main-block {
 	position: relative;
 }
@@ -192,9 +181,7 @@
 .next-btn {
 	position: absolute;
 	bottom: 25px;
-	/*right: 5px;*/
 	width: 100%;
-	
 }
 #run_btn {
 	margin: auto;
@@ -230,7 +217,77 @@
 .res {
 	padding: 5px;
 }
- 
+
+
+
+
+/* ---------------------- <INDEX STYLE> --------------------- */
+/**************************************************************/
+.welcome-text {
+	width: 100%;
+	height: 100%;
+}
+.welcome-text h1 {
+	text-align: center;
+	margin-top: 10%;
+	margin-bottom: 20%;
+	font-size: 65px;
+	color: #fff;
+	text-shadow: 0 0 5px red,
+				 0 0 7px red,
+				 0 0 9px red,
+				 0 0 24px red;
+				  
+}
+.about-container {
+	margin-top: 10%;
+	width: 70%;
+	margin: auto;
+	display: block;
+	position: relative;
+
+}
+.about-text-main {
+	display: block;
+	font-size: 18px;
+	padding: 15px;
+	background: rgba(0, 0, 0, 0.8);
+	font-family: monospace;
+	color: white;
+
+}
+
+.about-text-main a {
+	color: red;
+}
+.about-text-main span {
+	border-bottom: 1px solid #fff;
+}
+
+
+
+
+
+
+/* --------------------- <FOOTER STYLE> --------------------- */
+/**************************************************************/
+footer {
+	margin-top: 25%;
+}
+.footer-container {
+	background: rgba(0, 0, 0, 1.0);
+	color: gray;
+	text-align: center;
+	padding: 10px;
+}
+.footer-container small {
+	padding: 10px;
+
+}
+
+
+
+
 
 
 
@@ -273,5 +330,15 @@
 		font-size: 15px;
 		margin-top: 15px;
 	}
-
+	.welcome-text h1 {
+		font-size: 25px;
+	}
+	.welcome-text {
+		margin-top: 70%;
+		margin-bottom: 70%;
+	}
+	.about-text-main {
+		width: 90%;
+		font-size: 12px;
+	}
 } 
