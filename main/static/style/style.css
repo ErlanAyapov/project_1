@@ -274,7 +274,7 @@
 /* --------------------- <FOOTER STYLE> --------------------- */
 /**************************************************************/
 footer {
-	margin-top: 25%;
+	margin-top: 30%;
 }
 .footer-container {
 	background: rgba(0, 0, 0, 1.0);
@@ -347,5 +347,8 @@ footer {
 		display: block;
 		padding: 3px;
 		font-size: 10px;
+	}
+	footer {
+	margin-top: 50%;
 	}
 } 
