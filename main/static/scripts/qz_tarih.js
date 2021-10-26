@@ -41,9 +41,9 @@ if (cs == 1){
 
 var question_el = document.getElementById('question');
 question_el.innerHTML = (questions[question_id]) + ' ?';
-document.getElementById('true_questions').innerHTML = true_qestions.length
-document.getElementById('all_questions').innerHTML = 0
-document.getElementById('false_questions').innerHTML = '-' + false_questions.length
+document.getElementById('true_questions').innerHTML = 'Дұрыс: ' + (true_qestions.length)
+document.getElementById('all_questions').innerHTML =  'Барлығы: '  + 0
+document.getElementById('false_questions').innerHTML = 'Қате: ' + false_questions.length
 
 	run = true
 	function getRandomInt(max) {
@@ -92,15 +92,15 @@ document.getElementById('false_questions').innerHTML = '-' + false_questions.len
 	
 	var question_el = document.getElementById('question');
 	question_el.innerHTML = (questions[question_id]) + ' ?';
-	document.getElementById('true_questions').innerHTML = true_qestions.length
+	document.getElementById('true_questions').innerHTML = 'Дұрыс: ' + true_qestions.length
 	if (last_questions.length == 1){
-		document.getElementById('all_questions').innerHTML = (0)
+		document.getElementById('all_questions').innerHTML = 'Барлығы: 1'  
 
 	}else {
-		document.getElementById('all_questions').innerHTML = (last_questions.length) - 1
+		document.getElementById('all_questions').innerHTML = 'Барлығы: ' + (last_questions.length - 1)
 
 	}
-	document.getElementById('false_questions').innerHTML = '-' + false_questions.length
+	document.getElementById('false_questions').innerHTML = 'Қате: ' + false_questions.length
 
 	run = true
 	};		
