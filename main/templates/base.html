@@ -22,7 +22,6 @@
 		</div>
 	</header>
 	<main>
-		
 		{% block content %}
 		{% endblock %}
 	</main>
@@ -46,8 +45,17 @@
 			<nav>
 				<ul>
 					<li><a class="" href="{% url 'main' %}">Басты парақ</a></li>
-					<li><a class="" href="{% url 'q_tarih' %}">Тест тапсыру</a></li>
 					<li><a class="" href="https://www.instagram.com/erlans.kingdom/" target="_blank">Instagram</a></li>
+					<li>
+						<details>
+							<summary>Қайталау тапсыру</summary>
+							<ul>
+								<li><a class="" href="{% url 'q_tarih' %}">Қазақстан тарихы</a></li>
+								<li><a class="" href="{% url 'w_tarih' %}">Дүниежүзі тарихы</a></li>
+								 
+							</ul>
+						</details>
+					</li>
 					<li><a class="disabled" href="#/">Жаңалықтар</a></li>
 					<li><a class="disabled" href="#/">Аккаунт</a></li>
 					<li><a class="disabled" href="#/">Досымды қос</a></li>

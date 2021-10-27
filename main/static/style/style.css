@@ -42,6 +42,21 @@
 	padding: 20px 0;
 
 }
+.main-left-nav ul details summary {
+	color: white;
+	font-size: 18px;
+	cursor: pointer;
+}
+.main-left-nav ul details ul, .main-left-nav ul details ul li {
+	padding: 0;
+
+} 
+.main-left-nav ul details ul li a {
+	font-size: 15px;
+	padding: 0;
+	margin: 0;
+	color: #999;
+}
 .main-left-nav li {
 	margin: 15px 0;
 }
@@ -350,5 +365,11 @@ footer {
 	}
 	footer {
 		margin-top: 70%;
+	}
+	.result-block {
+		font-size: 14px;
+		padding: 5px;
+		
+
 	}
 } 
