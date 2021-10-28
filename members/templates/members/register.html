@@ -5,8 +5,9 @@
 
 		<div class='register-page'>
 			<h2>Авторизатция</h2>
-			{% csrf_token %}
+
 			<form action="{% url 'register' %}" method="POST">
+				{% csrf_token %}
 				<input type="text" name="username" maxlength="150" autofocus required id="id_username" placeholder="@қолданушы атауы">
 				<input type="password" name="password1" autocomplete="new-password" required id="id_password1" placeholder="Құпия сөз">
 				<input type="password" name="password2" autocomplete="new-password" required id="id_password2" placeholder="Құпия сөз (қайталау)">
