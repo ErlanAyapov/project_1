@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="register-container-page">
+
+		<div class='register-page'>
+			<h2>Авторизатция</h2>
+
+			<form action="{% url 'register' %}" method="POST">
+				<input type="text" name="username" maxlength="150" autofocus required id="id_username" placeholder="@қолданушы атауы">
+				<input type="password" name="password1" autocomplete="new-password" required id="id_password1" placeholder="Құпия сөз">
+				<input type="password" name="password2" autocomplete="new-password" required id="id_password2" placeholder="Құпия сөз (қайталау)">
+				<button class="submit">Акккаунт ашу</button>
+			</form>
+		</div>
+		<script type="text/javascript">
+			alert('Құпия сөзіңіз басқа жеке ақпаратыңызға тым ұқсас болмауы керек. Құпия сөзіңізде кемінде 8 таңба болуы керек. Құпия сөзіңіз жиі қолданылатын құпия сөз болуы мүмкін емес. Құпия сөзіңіз толығымен сандық болуы мүмкін емес. ')
+		</script>
+	</div>
+
+{% endblock %}

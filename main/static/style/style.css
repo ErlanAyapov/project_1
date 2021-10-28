@@ -98,17 +98,14 @@
 	display: block;
 }
 .about-text {
-	position: absolute;
-	bottom: 10px;
 	color: white;
 	font-size: 12px;
-	left: 40px;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 10px;
 }
-.about-text a {
-	font-size: 12px;
-	color: blue;
-	border-bottom: 2px solid blue;
-}
+
 
 
 
@@ -308,6 +305,160 @@ footer {
 
 
 
+/* -------------------- <MEMBERS STYLE> --------------------- */
+/**************************************************************/
+.members-container {
+	width: 100%;
+	display: flex;
+	margin-top: 5%;
+}
+.auth-container, .register-container {
+	width: 50%;
+}
+.members-container form {
+	/*width: 250px;*/
+	/*margin: auto;*/
+}
+.members-container h2, .register-page h2 {
+	text-align: center;
+	color: white;
+	padding: 0 0 15px 0;
+	margin: 0;
+}
+.members-container input {
+	width: 98%;
+	background: transparent;
+	border: 0;
+	outline: none;
+	border-bottom: 1px solid red;
+	font-size: 18px;
+	color: #fff;
+	margin: 5px 0;
+}
+.auth-block, .register-block {
+	width: 300px;
+	margin: auto;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 25px 10px;
+	box-shadow: 0 0 5px red,
+				0 0 25px red;
+	border-radius: 15px;
+}
+.submit {
+	padding: 2px 20px;
+	display: flex;
+	margin: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	color: red;
+	border: 1px solid red;
+	background: transparent;
+	font-size: 18px;
+	transition: 0.2s;
+	cursor: pointer;
+}
+.submit:hover {
+	background: rgba(0, 0, 0, 1.0);
+}	
+.register-container-page {
+	width: 100%;
+	margin-top: 5%;
+}
+.register-page {
+	width: 300px;
+	margin: auto;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 25px 10px;
+}
+.register-page input {
+	width: 98%;
+	background: transparent;
+	border: 0;
+	outline: none;
+	border-bottom: 1px solid #fff;
+	font-size: 18px;
+	color: #fff;
+	margin: 5px 0;
+}
+.error {
+	width: 80%;
+	color: cyan;
+	margin: auto;
+	text-align: center;
+}
+.inform {
+	text-align: center;
+	color: #fff;
+	display: none;
+}
+.inform a {
+	color: cyan;
+}
+.container-customer {
+	display: flex;
+	justify-content: center;
+	margin-top: 10%;
+}
+.container-customer form {
+	background: rgba(0, 0, 0, 0.5);
+	padding: 5px;
+}
+.container-customer form option {
+	font-size: 18px;
+	background: rgba(0, 0, 0, 0.4);
+}
+.container-customer form select {
+	font-size: 18px;
+	outline: none;
+	padding: 0 18px;
+	background: transparent;
+	color: red;
+	border: 1px solid red;
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.4);
+	transition: 0.2s;
+
+}
+.container-customer form select:hover {
+	background: #000;
+}
+.container-customer form h2 {
+	color: #fff;
+	text-align: center;
+	padding: 15px;
+}
+.profile-container {
+	width: 100%;
+	margin-top: 10%;
+}
+.profile-block {
+	width: 350px;
+	background: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	padding: 25px;
+	border-radius: 25px;
+	margin: 50px;
+}
+.profile-block input {
+	background: transparent;
+	border: 0;
+	color: #fff;
+	outline: none;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --------------------- <MEDIA STYLE> ---------------------- */
 /**************************************************************/
 @media screen and (max-width: 1095px) {
@@ -369,7 +520,14 @@ footer {
 	.result-block {
 		font-size: 14px;
 		padding: 5px;
-		
-
+	}
+	.register-container {
+		display: none;
+	}
+	.auth-container {
+		width: 100%;
+	}
+	.inform {
+		display: block;
 	}
 } 

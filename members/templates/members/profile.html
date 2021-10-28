@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="profile-container">
+		<div class="profile-block">
+			<form action="{% url 'user_update' request.user.id %}" method="POST">
+					
+				{% csrf_token %}
+				<p><strong>Қолданушы атауы: </strong><input type="text" value="{{ user.username }}" required id="id_username" name="username"></p>
+				<p><strong>Есімі: </strong><input name="first_name" type="text" value="{{ user.first_name }}" maxlength="150" id="id_first_name"></p>
+				<p><strong>Тегі: </strong><input name="last_name" type="text" value="{{ user.last_name }}" maxlength="150" id="id_last_name"></p>
+				<p><strong>Почта: </strong><input name="email" type="email" value="{{ user.email }}" name="email" maxlength="254" id="id_email" required></p>
+				<p><strong>Туылған күні: </strong><input type="text" value="{{ user.customer.birth_day }}"></p>
+				<p><strong>Туылған айы: </strong><input type="text" value="{{ user.customer.birth_mounth }}"></p>
+				<p><strong>Туылған жылы: </strong><input type="text" value="{{ user.customer.birth_year }}"></p>
+				<button type="submit" class="submit">Өзгерту</button>
+				<a href="{% url 'logout' %}">Шығу</a>
+			</form>
+
+		</div>
+	</div>
+
+{% endblock %}
