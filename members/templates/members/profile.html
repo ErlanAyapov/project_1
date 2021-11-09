@@ -1,10 +1,49 @@
-{% extends 'base.html' %}
-
+		{% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 	<div class="profile-container">
 		<div class="profile-block">
-			<form action="{% url 'user_update' request.user.id %}" method="POST">
+			<div class="image-block">
+				<h2>{{ user.first_name }} {{ user.last_name }}</h2>
+				{% if user.customer.profile_photo == 'sds' %}
+					<img id="user_pic" src="{% static 'image/user.png' %}">
+
+				{% else %}
+					<img id="user_pic" src="{{ user.customer.profile_photo }}">
+				{% endif %}
+
+			</div>
+			<div class="profile-info">
+				<p>@{{ user.username }}</p>
+				<p>Туылғанкүн {{ user.customer.birth_mounth }} {{ user.customer.birth_day }}, {{ user.customer.birth_year }} жыл</p>
+				
+				<div class="result-block-profile">
+					<h3>Нәтиже</h3>
+					<table class="">
+						<tr>
+							<th>Барлығы</th> 
+							<th>Дұрыс</th> 
+							<th>Қате</th>
+						</tr>
+					{% for last_progress in last_progress %}
+					{% if last_progress.user.id == user.id %}
+					<tr>
+						<td colspan="1" style="text-align:center;">{{ last_progress.result_all }}</td>
+						<td colspan="1" style="text-align:center;">{{ last_progress.result_true }}</td>
+						<td colspan="1" style="text-align:center;">{{ last_progress.result_false }}</td>
+					</tr>	 
+					{% endif %}
+					{% endfor %}
+					</table>
+				</div>
+				<!-- <div class="update-photo">
+					<input type="file" id="portret_id"><br>
+					<button onclick="screen_shot()">Жіберу</button>
+				</div> 	 -->		
+			</div>
+
+			<!-- <form action="{% url 'user_update' request.user.id %}" method="POST">
 					
 				{% csrf_token %}
 				<p><strong>Қолданушы атауы: </strong><input type="text" value="{{ user.username }}" required id="id_username" name="username"></p>
@@ -13,12 +52,14 @@
 				<p><strong>Почта: </strong><input name="email" type="email" value="{{ user.email }}" name="email" maxlength="254" id="id_email" required></p>
 				<p><strong>Туылған күні: </strong><input type="text" value="{{ user.customer.birth_day }}"></p>
 				<p><strong>Туылған айы: </strong><input type="text" value="{{ user.customer.birth_mounth }}"></p>
+				<a class="submit" href="{% url 'logout' %}">Шығу</a>
 				<p><strong>Туылған жылы: </strong><input type="text" value="{{ user.customer.birth_year }}"></p>
 				<button type="submit" class="submit">Өзгерту</button>
-				<a href="{% url 'logout' %}">Шығу</a>
-			</form>
+			</form> -->
 
 		</div>
 	</div>
+
+
 
 {% endblock %}

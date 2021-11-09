@@ -3,7 +3,6 @@
 //  | функциясының бір бөлігі орындалуы керек болғандықтан  |
 //  | сол бөлікті көшіріп қойдым, бұл қателік емес!!!       |
 //	|=======================================================|
-
 while (run) {
 	question_id = getRandomInt(questions.length);
 	if (!last_questions.includes(question_id)) {
@@ -125,13 +124,18 @@ function make_question() {
 	var question_el = document.getElementById('question');
 	question_el.innerHTML = (questions[question_id]) + ' ?';
 	document.getElementById('true_questions').innerHTML = 'Дұрыс: ' + true_qestions.length
+	document.getElementById('id_result_true').value = true_qestions.length;
 	if (last_questions.length == 1){
-		document.getElementById('all_questions').innerHTML = 'Барлығы: 1'  
+		document.getElementById('all_questions').innerHTML = 'Барлығы: 1'
+		document.getElementById('id_result_true').value = '1'
 
 	}else {
 		document.getElementById('all_questions').innerHTML = 'Барлығы: ' + (last_questions.length - 1)
+		document.getElementById('id_result_all').value = (last_questions.length - 1)
+
 
 	}
+	document.getElementById('id_result_false').value = false_questions.length
 	document.getElementById('false_questions').innerHTML = 'Қате: ' + false_questions.length
 
 	run = true
@@ -141,6 +145,7 @@ function make_question() {
 		true_questions = []
 		false_questions = []
 	}
+	
 	};	
 
 	// Функцияның 4-ші бөлігі
@@ -192,4 +197,22 @@ function make_question() {
 			alert('Дұрыс емес :(')
 			make_question();
 		}
-	}
+	};
+
+
+// function screen_shot(){
+// 	html2canvas(document.getElementById("portret_id").value ).then(function(canvas) {
+// 		// var logo = document.getElementById('id_des_image');
+// 		var my_screen = canvas.toDataURL();
+// 		logo.value = my_screen;
+// 		console.log(my_screen)
+// 		// document.getElementById('rm').src = my_screen;
+// 	});	
+	
+// };
+
+// function result() {
+// 	true_qestions_input.value = true_questions.length;
+// 	false_qestions_input.value = false_questions.length;
+// 	all_qestions_input.value = last_questions.length;
+// }

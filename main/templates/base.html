@@ -60,6 +60,7 @@
 				 		<li><a class="" href="{% url 'members' %}">Аккаунт</a></li>
 				 	{% else %}
 				 		<li><a class="" href="{% url 'user_profile' request.user.id %}">@{{ request.user }}</a></li>
+				 		<li><a class="" href="{% url 'picture_update' request.user.id %}">@{{ request.user }} тест</a></li>
 					{% endif %}
 					<li><a class="disabled" href="#/">Жаңалықтар</a></li>
 					<li><a class="disabled" href="#/">Досымды қос</a></li>
@@ -77,6 +78,7 @@
 		<div class="ds">
 			<p class="btn" id="open_menu" >☰</p>
 		</div>
+	<script type="text/javascript" src="{% static 'scripts/html2canvas.js' %}"></script>
 	<script type="text/javascript" src="{% static 'scripts/jquery-3.6.0.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'scripts/qz_tarih.js' %}"></script>
 
@@ -91,11 +93,6 @@
 			$(".main-left-nav").css("left", '0');
 			$("#open_menu").css("display", 'none');	
 		});
-		jQuery('#run_btn').on('click', function() {
-			false_questions.push(question_id)
-			make_question();					
-		});
-		
 	</script>
 </body>
 </html>

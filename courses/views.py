@@ -5,6 +5,7 @@ from .models import WorldHistory
 
 
 
+
 class QazaqstanTarihy(ListView):
 	model = Question
 	ordering = '-id'
