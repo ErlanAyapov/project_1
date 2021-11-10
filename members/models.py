@@ -16,6 +16,18 @@ class Customer(models.Model):
 
 class UserProgress(models.Model):
 
+    COURSE_TYPE_KK = 'Қазақстан тарихы'
+    COURSE_TYPE_DZH = 'Дүниежүзі тарихы'
+
+    BUYING_TYPE_CHOICES = (
+        (COURSE_TYPE_KK, 'Қазақстан тарихы'),
+        (COURSE_TYPE_DZH, 'Дүниежүзі тарихы')
+    )
+    course = models.CharField(max_length=50,
+        verbose_name='Тапсырған сабағы',
+        choices=BUYING_TYPE_CHOICES,
+        default=COURSE_TYPE_KK)
+
     user         = models.ForeignKey(User, on_delete=models.CASCADE)
     result_all   = models.IntegerField('Жалпы сұрақ')
     result_true  = models.IntegerField('Қате сұрақ')

@@ -34,6 +34,8 @@
 			<form action="{% url 'progress_save' request.user.id %}" method="POST">
 				{% csrf_token %}
 				<input class="hide_me" type="" name="user" required id="id_user" value="{{ request.user.id }}">
+				<input class="hide_me" type="" name="course" id="id_course" value="Қазақстан тарихы">
+
 				<input class="hide_me" type="number" name="result_all" required id="id_result_all" value="">
 				<input class="hide_me" type="number" name="result_true" required id="id_result_true">
 				<input class="hide_me" type="number" name="result_false" required id="id_result_false">
