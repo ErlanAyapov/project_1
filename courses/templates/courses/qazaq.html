@@ -2,62 +2,36 @@
 {% block page_title %}Қазақстан тарихы{% endblock %}
 {% block content %}
 	<div class="main-container">
-		<div class="main-block">
-			<div id="ds"></div>
-			<h1>Сұрақтар</h1>
-			<div id="question">Сұрақтар жүктелуде, Сабыр...</div>
-			<div class="question-block">
-				<label>
-					<input style="display:none" type="button" name="" id="answer_1" value="Жауап 1" onclick="check_1()">
-					<div class="answers" id="block_1">Жауап</div>
-				</label>
-				<label>
-					<input style="display:none" type="button" name="" id="answer_2" value="Жауап 1" onclick="check_2()">
-					<div class="answers" id="block_2">Жауап</div>
-				</label>
-				<label>
-					<input style="display:none" type="button" name="" id="answer_3" value="Жауап 1" onclick="check_3()">
-					<div class="answers" id="block_3">Жауап</div>
-				</label>
-				<label>
-					<input style="display:none" type="button" name="" id="answer_4" value="Жауап 1" onclick="check_4()">
-					<div class="answers" id="block_4">Жауап</div>
-				</label>	
-			</div>
-			<div class="result-block">
-				<div class="res" id="all_questions">0</div>
-				<div class="res" id="true_questions">0</div>
-				<div class="res" id="false_questions">-0</div>
-			</div>
-		</div>
+		{% include 'courses/task_body.html' %}
 		<div class="next-btn">
+			{% if user.is_authenticated %}
 			<form action="{% url 'progress_save' request.user.id %}" method="POST">
 				{% csrf_token %}
 				<input class="hide_me" type="" name="user" required id="id_user" value="{{ request.user.id }}">
 				<input class="hide_me" type="" name="course" id="id_course" value="Қазақстан тарихы">
-
 				<input class="hide_me" type="number" name="result_all" required id="id_result_all" value="">
 				<input class="hide_me" type="number" name="result_true" required id="id_result_true">
 				<input class="hide_me" type="number" name="result_false" required id="id_result_false">
-				<input type="submit" name="" id="run_btn" value="Прогрессті аяқтау">
+				<input type="submit" name="" id="run_btn" value="Нәтижені сақтау">
 			</form>
+			{% endif %}
 		</div>
-			<script type="text/javascript">
-				var questions = [];
-				var answers = [];
-				var last_questions = [];
-				var true_qestions = [];
-				var false_questions = [];
-				var tasks = [];
-				var run = true;
-				var question_id;
-				// {% for qazaqstan_tarihy in object_list %}
-				var question = '{{ qazaqstan_tarihy.question }}';
-				var answer = '{{ qazaqstan_tarihy.answer }}';
-				questions.push(question)
-				answers.push(answer)
-				// {% endfor %}	
-			</script>
+		<script type="text/javascript">
+			var questions = [];
+			var answers = [];
+			var last_questions = [];
+			var true_qestions = [];
+			var false_questions = [];
+			var tasks = [];
+			var run = true;
+			var question_id;
+			// {% for qazaqstan_tarihy in object_list %}
+			var question = '{{ qazaqstan_tarihy.question }}';
+			var answer = '{{ qazaqstan_tarihy.answer }}';
+			questions.push(question)
+			answers.push(answer)
+			// {% endfor %}	
+		</script>
 	</div>
 {% endblock %}
 {% block footer %}

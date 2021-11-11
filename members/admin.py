@@ -3,5 +3,5 @@ from .models import Customer, UserProgress
 
 
 admin.site.register(Customer)
-admin.site.register(UserProgress)
+# admin.site.register(UserProgress)
 # Register your models here.
