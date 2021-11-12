@@ -18,10 +18,12 @@ class UserProgress(models.Model):
 
     COURSE_TYPE_KK = 'Қазақстан тарихы'
     COURSE_TYPE_DZH = 'Дүниежүзі тарихы'
+    COURSE_TYPE_PHY = 'Физика'
 
     BUYING_TYPE_CHOICES = (
         (COURSE_TYPE_KK, 'Қазақстан тарихы'),
-        (COURSE_TYPE_DZH, 'Дүниежүзі тарихы')
+        (COURSE_TYPE_DZH, 'Дүниежүзі тарихы'),
+        (COURSE_TYPE_PHY, 'Физика')
     )
     course = models.CharField(max_length=50,
         verbose_name='Тапсырған сабағы',

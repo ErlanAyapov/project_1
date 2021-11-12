@@ -150,3 +150,8 @@ def progress_save(request, pk):
 		 
 	}
 	return render(request, 'succes_pages/progress_save.html', data)
+
+
+class UserList(ListView):
+	model = User
+	template_name = 'members/users.html'

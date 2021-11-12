@@ -12,11 +12,11 @@
    height:auto;
    padding:15px 20px 10px;
    position:fixed;
-   top:20%;
+   top:10%;
    left:50%;
    margin-left:-159px;
    margin-top:-19px;
-   border:#999 1px solid;
+   border:0;
    background: rgba(0, 0, 0, 0.5);
    z-index:9999;
    -webkit-border-radius: 5px;
@@ -26,6 +26,7 @@
    font-size:20px;
    box-shadow: 0 0 10px cyan;
    color: cyan;
+   text-align: center;
 }
 
 #contact-remove-sign{
@@ -565,7 +566,22 @@ footer {
 	border: 1px solid #fff;
 
 }
-
+.users-container {
+	width: 90%;
+	margin: auto;
+}
+.users-block {
+	background: rgba(0, 0, 0, 0.5);
+	margin-top: 20px;
+	color: #fff;
+	text-align: center;
+	font-size: 22px;
+	padding: 15px;
+	border-radius: 25px;
+}
+.users-block a {
+	color: red;
+}
 
 
 

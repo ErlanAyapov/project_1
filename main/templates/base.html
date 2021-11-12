@@ -45,14 +45,14 @@
 			<nav>
 				<ul>
 					<li><a class="" href="{% url 'main' %}">Басты парақ</a></li>
-					<li><a class="" href="https://www.instagram.com/erlans.kingdom/" target="_blank">Instagram</a></li>
+					<!-- <li><a class="" href="https://www.instagram.com/erlans.kingdom/" target="_blank">Instagram</a></li> -->
 					<li>
 						<details>
 							<summary>Қайталау тапсыру</summary>
 							<ul>
 								<li><a class="" href="{% url 'q_tarih' %}">Қазақстан тарихы</a></li>
 								<li><a class="" href="{% url 'w_tarih' %}">Дүниежүзі тарихы</a></li>
-								 
+								<li><a class="" href="{% url 'physic' %}">Физика</a></li>						 
 							</ul>
 						</details>
 					</li>
@@ -62,6 +62,7 @@
 				 		<li><a class="" href="{% url 'user_profile' request.user.id %}">@{{ request.user }}</a></li>
 				 		<!-- <li><a class="" href="{% url 'picture_update' request.user.id %}">@{{ request.user }} тест</a></li> -->
 					{% endif %}
+					<li><a class="" href="{% url 'users' %}">Қолданушылар</a></li>
 					<li><a class="disabled" href="#/">Жаңалықтар</a></li>
 					<li><a class="disabled" href="#/">Досымды қос</a></li>
 					<li><a class="disabled" href="#/">Дайындық</a></li>

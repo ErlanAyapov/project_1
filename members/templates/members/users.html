@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block page_title %}Қолданушылар{% endblock %}
+
+{% block content %}
+{% if object_list %}
+	<div class="users-container">
+		{% for obb in object_list %}
+			<div class="users-block">
+				<p><a href="{% url 'user_profile' obb.id %}">@{{ obb.username }}</a></p>
+				<p>{{ obb.first_name }} {{ obb.last_name }}</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endif %}
+{% endblock %}
