@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function($) {
     window.realAlert=window.alert
     window.alert=function(s){
@@ -22,3 +23,5 @@ jQuery(document).ready(function($) {
     });
     
 });
+
+

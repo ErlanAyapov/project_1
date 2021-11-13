@@ -2,20 +2,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta charset="utf-8">
 	<title>Electro Eyes</title>
-	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" id="theme">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="{% static 'image/logo_32.png' %}">
 </head>
-<body>
-	<style type="text/css">
-		body {
-			background: url('{% static "image/bg.jpg" %}') no-repeat top center fixed;
-			background-repeat: no-repeat;
-			background-size: cover;
+<script type="text/javascript">
+		myStorage = window.localStorage;
+		let mod = localStorage.getItem('mod') 
+		if (mod == 'light') {
+		    theme.href = "{% static 'style/style.css' %}"
+			
+		} else {
+		    theme.href = "{% static 'style/dark-style.css' %}"
+
 		}
-	</style>
+	</script>
+<body>
+	
 	<header>
 		<div class="main-header">
 			<h1>{% block page_title %}Electro Eyes{% endblock %}</h1>
@@ -48,7 +54,7 @@
 					<!-- <li><a class="" href="https://www.instagram.com/erlans.kingdom/" target="_blank">Instagram</a></li> -->
 					<li>
 						<details>
-							<summary>Қайталау тапсыру</summary>
+							<summary>Сабақ қайталау</summary>
 							<ul>
 								<li><a class="" href="{% url 'q_tarih' %}">Қазақстан тарихы</a></li>
 								<li><a class="" href="{% url 'w_tarih' %}">Дүниежүзі тарихы</a></li>
@@ -70,9 +76,7 @@
 					 
 				</ul>
 			</nav>
-			<!-- {% if request.user.is_authenticated %}
-			<p class="about-text"><a class="" href="{% url 'user_profile' request.user.id %}">{{ request.user }}</a></p>
-			{% endif %} -->
+			<p class="about-text"><a class="" id="switch_mod" style="cursor: pointer;">Дизайн ауыстыру</a></p>
 <!-- Product by: <a href="https://wa.me/+77478160485?text=Сәлем%2C+https://alternative-tarih.herokuapp.com/+осы+сайт+бойынша+сұрағым+бар+еді?" color='blue' target="_blank">Erlan Aiapov</a> -->
 
 		</div>
@@ -99,6 +103,24 @@
 			$(".main-left-nav").css("left", '0');
 			$("#open_menu").css("display", 'none');	
 		});
+
+		let switch_button = document.getElementById('switch_mod')
+		
+		
+
+
+		switch_button.onclick = function () {
+		    let theme = document.getElementById('theme')
+		    if (theme.getAttribute("href") == "{% static 'style/style.css' %}") {
+		    	theme.href = "{% static 'style/dark-style.css' %}"
+		    	localStorage.clear();
+		    	localStorage.setItem('mod', 'dark')
+		    } else {
+		    	theme.href = "{% static 'style/style.css' %}"
+		    	localStorage.clear();
+		    	localStorage.setItem('mod', 'light')
+		    }
+		}
 	</script>
 </body>
 </html>
