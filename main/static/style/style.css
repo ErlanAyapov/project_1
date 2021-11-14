@@ -76,13 +76,13 @@ body {
 /**************************************************************/
 .main-header {
 	text-align: center;
-	background: #4400B2;
-	color: yellow;
+	background: #02a0da;
+	color: #000;
 	padding: 15px;
 	box-shadow: 0 0 25px #000;
 }
 .main-left-nav {
-	background: #4400B2;
+	background: #02a0da;
 	/*border-right: 2px solid cyan;*/
 	width: 250px;
 	/*margin-top: 70px;*/
@@ -151,7 +151,7 @@ body {
 	top: 10px;
 	font-family: monospace;
 	font-size: 20px;
-	background: #4400B2;
+	background: #02a0da;
 	padding: 10px 5px;
 	color: white;
 	border-radius: 0 25px 25px 0 ;
@@ -200,12 +200,12 @@ body {
 	width: 100%;
 }
 .question-block label {
-	background: yellow;
+	background: #b2dfe2;
 	width: 100%;
 }
 .answers {
 	max-width: 90%;
-	background: rgba(0, 0, 0, 0.5);
+	background: #555;
 	color: #fff;
 	margin: auto;
 	margin-top: 15px;
@@ -216,12 +216,12 @@ body {
 	cursor: pointer;
 	border-radius: 5px;
 	transition: 0.2s;
-	box-shadow: 0 0 5px cyan;
 }
 .answers:hover {
 	background: rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 5px cyan,
 				0 0 15px cyan;
+	text-shadow: 0 0 5px;
 }
 .main-block {
 	position: relative;
@@ -229,7 +229,7 @@ body {
 .main-block h1 {
 	text-align: center;
 	color: white;
-	background: #DF8600;
+	background: #5a585c;
 	padding: 10px;
 	border-radius: 20px		 20px;
 
@@ -254,7 +254,7 @@ body {
 	font-size: 18px;
 	outline: none;
 	cursor: pointer;
-	background: yellow;
+	background: #97cded;
 	color: #000;
 	border-radius: 10px;
 	margin: 15px;
@@ -274,32 +274,34 @@ body {
 	justify-content: center;
 	font-size: 26px;
 	box-shadow: 0 0 25px;
-	background: #DF8600; 
+	background: #555; 
 	font-family: serif;
 	transition: 0.2s;
 	cursor: pointer;
 	border: 0;
+	color: #b2dfe2;
 }
 #run_btn:hover {
-	background: #FC9A40;  
+	background: #5a585c;  
 }
 .result-block {
 	position: absolute;
 	top: 10px;
-	background: #FF6B00;
+	background: #b2dfe2;
 	display: flex;
 	padding: 0 35px;
 	border-radius: 15px;
 	right: 25px;
-	border: 1px solid #F39629;
+	border: 1px solid #b2dfe2;
 }
 .res {
 	padding: 5px;
+	background: #b2dfe2;
 }
 .hide_me {
 	display: none;
 }
-#block_1 {
+/*#block_1 {
 	background: #00DC7D;
 }
 #block_2 {
@@ -310,7 +312,7 @@ body {
 }
 #block_4 {
 	background: #F85C50;
-}
+}*/
 
 
 /* ---------------------- <INDEX STYLE> --------------------- */
@@ -400,7 +402,7 @@ footer {
 }
 .members-container h2, .register-page h2 {
 	text-align: center;
-	color: white;
+	color: #000;
 	padding: 0 0 15px 0;
 	margin: 0;
 }
@@ -411,13 +413,14 @@ footer {
 	outline: none;
 	border-bottom: 1px solid #000;
 	font-size: 18px;
-	color: #fff;
+	color: #000;
 	margin: 5px 0;
 }
 .auth-block, .register-block {
 	width: 300px;
 	margin: auto;
-	background: #DF8600;
+	background: #ecf3f5;
+
 	padding: 25px 10px;
 	box-shadow: 0 0 5px #000,
 				0 0 25px #000;
@@ -660,8 +663,13 @@ footer {
 		margin-top: 70%;
 	}
 	.result-block {
+		background: #5a585c;
 		font-size: 14px;
 		padding: 5px;
+	}
+	.result-block div {
+		background: #5a585c;
+		color: #fff;
 	}
 	.register-container {
 		display: none;
