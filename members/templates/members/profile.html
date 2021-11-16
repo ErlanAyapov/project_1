@@ -5,11 +5,16 @@
 	<div class="profile-container">
 		<div class="profile-block">
 			<div class="image-block">
-				
-				{% if user_profile.user.id == user.id %}
-					<img id="user_pic" src="{{ user_profile.photo }}">
-				{% else %}
-					<img id="user_pic" src="{% static 'image/user.png' %}">
+				<!-- if applicant.username in applications.0.user.username -->
+				 
+				{% for i in user_profile %}
+					{% if i.user.id == user.id %}
+						<img id="user_pic" src="{{ i.photo }}">
+
+					{{ "<!--" }}
+					  {%endif%} 
+					{%endfor%}     
+					{{ "-->" }}
 				{% endif %}
 
 			</div>
