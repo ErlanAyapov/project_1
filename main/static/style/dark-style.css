@@ -586,6 +586,78 @@ footer {
 .users-block a {
 	color: red;
 }
+/************************/
+.update-picture-container {
+	width: 350px;
+	margin: auto;
+	margin-top: 5%;
+	background: #2F3538;
+	padding: 50px 0;
+	border-radius: 25px;
+	box-shadow: 0 0 15px cyan;
+
+}
+.input-image {
+	display: flex;
+	justify-content: center;
+}
+.input-image label {
+	border: 1px solid blue;
+	font-size: 19px;
+	color: blue;
+	padding: 5px 20px;
+	transition: 0.2s;
+	cursor: pointer;
+
+}
+.input-image label:hover {
+	background: blue;
+	color: #fff;
+	box-shadow: 0 0 15px blue;
+	text-shadow: 0 0 10px #fff;
+}
+.output-image {
+	width: 256px;
+	height: 256px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.output-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: none;
+}
+#id_image {
+	display: none;
+}
+
+.update-picture-container form textarea {
+	display: none;
+}
+.update-picture-container form {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.update-picture-container button {
+	width: 150px;
+	padding: 5px;
+	margin: auto;
+	display: none;
+	background: #00DC7D;
+	border: 0;
+	color: #fff;
+	transition: 0.2s;
+	cursor: pointer;
+}
+.update-picture-container button:hover {
+	background: #117243;
+	/*box-shadow: 0 0 15px #fff;*/
+	text-shadow: 0 0 10px #fff;
+}
+
 
 
 

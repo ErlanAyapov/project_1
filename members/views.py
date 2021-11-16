@@ -3,11 +3,12 @@ from .forms import UserCreateForm, UserUpdateForm, UserCustomerForm, UserPicture
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout as django_logout 
-from django.views.generic import ListView, DetailView, UpdateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView
 from django.contrib.auth.models import User
-from .models import Customer, UserProgress
+from .models import Customer, UserProgress, UserPicture
+from django.shortcuts import get_object_or_404
 import base64
-
+from .models import *
 
 
 def register(request):
@@ -21,7 +22,7 @@ def register(request):
 			user = authenticate(request, username = username, password = password)
 			if user is not None: 
 				login(request, user)
-				return HttpResponseRedirect('/аккаунт/тіркеу/' + str(request.user.id))
+				return HttpResponseRedirect('/account/register/' + str(request.user.id))
 				# return redirect('main')
 		else:
 			error = 'Пороли не совпадает или логин занят!'
@@ -75,24 +76,24 @@ def user_customer(request, pk):
 	return render(request, 'members/customer.html', data)
 
 
-def user_customer(request, pk):
-	if request.method == 'POST':
-		form = UserCustomerForm(request.POST)
-		if form.is_valid():
-			form.save(commit = False)
-			form.user = request.user
-			form.save()
-			return redirect('main')
+# def user_customer(request, pk):
+# 	if request.method == 'POST':
+# 		form = UserCustomerForm(request.POST)
+# 		if form.is_valid():
+# 			form.save(commit = False)
+# 			form.user = request.user
+# 			form.save()
+# 			return redirect('main')
 		 
 
-	form = UserCustomerForm()
-	data = {
-		'customer_form':form,
-		'day':range(1, 32, 1),
-		'mounth':['Қаңтар', 'Ақпан', 'Наурыз', 'Сәуір', 'Мамыр', 'Маусым', 'Шілде', 'Тамыз', 'Қырқүйек', 'Қазан', 'Қараша', 'Желтоқсан'],
-		'year':range(2013, 1970, -1),
-	}
-	return render(request, 'members/customer.html', data)
+# 	form = UserCustomerForm()
+# 	data = {
+# 		'customer_form':form,
+# 		'day':range(1, 32, 1),
+# 		'mounth':['Қаңтар', 'Ақпан', 'Наурыз', 'Сәуір', 'Мамыр', 'Маусым', 'Шілде', 'Тамыз', 'Қырқүйек', 'Қазан', 'Қараша', 'Желтоқсан'],
+# 		'year':range(2013, 1970, -1),
+# 	}
+# 	return render(request, 'members/customer.html', data)
 
 
 class UserProfile(DetailView):
@@ -102,12 +103,14 @@ class UserProfile(DetailView):
 	def get_context_data(self, **kwargs):
 		context = super(UserProfile, self).get_context_data(**kwargs)
 		context['last_progress'] = UserProgress.objects.all()
+		context['user_profile'] = UserPicture.objects.order_by('-pk')[0]
+
 		return context
 
 
-class UserUpdate(UpdateView):
-	model = User
-	form_class = UserUpdateForm
+class UserUpdate(CreateView):
+	model = UserPicture
+	form_class = UserUpdateForm()
 	template_name = 'members/user_update.html'
     # fields = ['title', 'slug', 'body', 'image']
 	def form_valid(self, form):
@@ -115,23 +118,34 @@ class UserUpdate(UpdateView):
 		return redirect('main')
 
 
-def picture_update(request, pk):
-	if request.method == 'POST':
-		form = UserPictureUpdate()
-		if form.is_valid(request.POST, request.FILES):
-			form.save(commit = False)
-			file = request.POST.get('file_name')
-			with open(file, "rb") as image_file:
-				encoded_string = base64.b64encode(image_file.read())
-			form.profile_photo = encoded_string
-			print(form.profile_photo)
-			# form.user = request.user
-			form.save()
-			return redirect('main')
-	data = {
-		'form_picture': UserPictureUpdate()
-	}
+
+# class PictureUserUpdate(UpdateView):
 	
+# 	model = Customer
+# 	# form_class = UserPictureUpdate()
+# 	# slug_field = 'id'
+# 	template_name = 'members/update_picture.html'
+
+# 	fields = ['profile_photo', 'image']
+# 	def form_valid(self, form):
+# 		form.save()
+# 		return redirect('main')
+# 	def get_object(self, queryset=None):
+# 		return get_object_or_404(Customer, pk=self.kwargs.get('pk'))
+
+def pic_update(request, pk):
+	if request.method == 'POST':
+		form = UserPictureUpdate(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/account/profile/' + str(request.user.id))
+		 
+
+	form = UserPictureUpdate()
+	data = {
+		'form_picture':form,
+		 
+	}
 	return render(request, 'members/update_picture.html', data)
 
 def progress_save(request, pk):

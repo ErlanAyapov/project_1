@@ -7,8 +7,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    path('қайталау/', include('courses.urls')),
-    path('аккаунт/', include('members.urls')),
+    path('return/', include('courses.urls')),
+    path('account/', include('members.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # статик файлдарды қосу 
 
 

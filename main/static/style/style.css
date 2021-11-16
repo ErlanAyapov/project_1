@@ -484,22 +484,23 @@ footer {
 }
 .container-customer form option {
 	font-size: 18px;
-	background: rgba(0, 0, 0, 0.4);
+	/*background: rgba(0, 0, 0, 0.4);*/
 }
 .container-customer form select {
 	font-size: 18px;
 	outline: none;
 	padding: 0 18px;
 	background: transparent;
-	color: red;
-	border: 1px solid red;
+	color: #fff;
+	border: 1px solid #fff;
 	cursor: pointer;
-	background: rgba(0, 0, 0, 0.4);
+	/*background: rgba(0, 0, 0, 0.4);*/
 	transition: 0.2s;
+	background: gray;
 
 }
 .container-customer form select:hover {
-	background: #000;
+	/*background: #000;*/
 }
 .container-customer form h2 {
 	color: #fff;
@@ -595,6 +596,76 @@ footer {
 .users-block a {
 	color: red;
 }
+.update-picture-container {
+	width: 350px;
+	margin: auto;
+	margin-top: 5%;
+	background: #FFC11E;
+	padding: 50px 0;
+	border-radius: 25px;
+
+}
+.input-image {
+	display: flex;
+	justify-content: center;
+}
+.input-image label {
+	border: 1px solid blue;
+	font-size: 19px;
+	color: blue;
+	padding: 5px 20px;
+	transition: 0.2s;
+	cursor: pointer;
+}
+.input-image label:hover {
+	background: blue;
+	color: #fff;
+}
+.output-image {
+	width: 256px;
+	height: 256px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.output-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: none;
+}
+#id_image {
+	display: none;
+}
+
+.update-picture-container form textarea {
+	display: none;
+}
+.update-picture-container form {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.update-picture-container button {
+	width: 150px;
+	padding: 5px;
+	margin: auto;
+	display: none;
+	background: #00DC7D;
+	border: 0;
+	color: #fff;
+	transition: 0.2s;
+	cursor: pointer;
+}
+.update-picture-container button:hover {
+	background: #117243;
+}
+
+
+
+
+
+
 
 
 

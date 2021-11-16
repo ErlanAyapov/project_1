@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, EmailInput
-from members.models import Customer, UserProgress
+from members.models import Customer, UserProgress, UserPicture
 
 
 class UserCreateForm(UserCreationForm):
@@ -31,8 +31,10 @@ class UserCustomerForm(forms.ModelForm):
 
 class UserPictureUpdate(forms.ModelForm):
 	class Meta:
-		model = Customer
-		fields = ('profile_photo', 'image', 'user')
+		model = UserPicture
+		fields = ('__all__')
+		# exclude = ['user']
+		 
 
 
 class UserProgressSave(forms.ModelForm):

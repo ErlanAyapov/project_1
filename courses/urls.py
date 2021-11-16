@@ -3,7 +3,7 @@ from .views import *
 
 
 urlpatterns = [
-	path('Қазақстан-тарихы/', QazaqstanTarihy.as_view(), name = 'q_tarih'),
-	path('дүниежүзі-тарихы/', WorldHistory.as_view(), name = 'w_tarih'),
-	path('физика/', Physic.as_view(), name = 'physic'),
+	path('kazakhstan-history/', QazaqstanTarihy.as_view(), name = 'q_tarih'),
+	path('world-history/', WorldHistory.as_view(), name = 'w_tarih'),
+	path('physic/', Physic.as_view(), name = 'physic'),
 ]
