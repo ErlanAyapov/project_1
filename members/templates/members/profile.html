@@ -6,7 +6,7 @@
 		<div class="profile-block">
 			<div class="image-block">
 				
-				{% if user_profile %}
+				{% if user_profile.user.id == user.id %}
 					<img id="user_pic" src="{{ user_profile.photo }}">
 				{% else %}
 					<img id="user_pic" src="{% static 'image/user.png' %}">
