@@ -86,7 +86,7 @@ body {
 	/*border-right: 2px solid cyan;*/
 	width: 250px;
 	/*margin-top: 70px;*/
-	box-shadow: 0 0 25px #000;
+	/*box-shadow: 0 0 25px #000;*/
 	text-align: center;
 	transition: 0.2s;
 	height: 100%;
@@ -580,22 +580,71 @@ footer {
 	border: 1px solid #fff;
 
 }
+/*-----------------------------------*/
+
 .users-container {
 	width: 90%;
 	margin: auto;
+	/*display: flex;
+	justify-content: center;*/
+	margin-top: 5%;
+}
+.object-logo {
+	text-align: center;
+	position: fixed;
+	background: #888;
+	padding: 50px;
+	border-radius: 15px;
+	font-size: 40px;
+	color: #02a0da;
 }
 .users-block {
+	width: 700px;
 	background: rgba(0, 0, 0, 0.5);
 	margin-top: 20px;
 	color: #fff;
-	text-align: center;
+	/*text-align: center;*/
 	font-size: 22px;
 	padding: 15px;
-	border-radius: 25px;
+	border-radius: 100px;
+	float: right;
+	display: flex;
 }
 .users-block a {
-	color: red;
+	color: #02a0da;
+	text-decoration: none;
+	font-size: 35px;
+	margin-top: 15px;
+	padding: 5px;
+	padding-left: 20px;
 }
+.users-inner {
+	/*scroll-behavior: auto;*/
+	max-height: 70vh;
+	overflow: auto;
+	padding: 20px;
+}
+.users-block-img {
+	width: 80px;
+	height: 80px;
+	/*margin: auto;*/
+	/*margin-top: 20px;*/
+}
+
+.users-block-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/*display: none;*/
+	border-radius: 50%;
+	border: 2px solid #02a0da;
+
+}
+
+
+
+
+/*-----------------------------------*/
 .update-picture-container {
 	width: 350px;
 	margin: auto;
@@ -753,4 +802,40 @@ footer {
 	.profile-block div {
 		margin: auto;
 	}
+	/*-----------------*/
+	.object-logo {
+		display: none;
+	}
+	.users-block {
+		width: 500px;
+		float: none;
+		margin: auto;
+		margin-top: 15px;
+	}
+
 } 
+@media screen and (max-width: 670px) {
+	.users-block {
+		width: 300px;
+		float: none;
+		margin: auto;
+		margin-top: 15px;
+	}
+	.users-block a {
+		font-size: 20px;
+		margin: 10px;
+		 
+	}
+	.users-block-img {
+		width: 50px;
+		height: 50px;
+	}
+}
+@media screen and (max-width: 410px) {
+	.users-block {
+		width: 250px;
+		float: none;
+		margin: auto;
+		margin-top: 15px;
+	}
+}
