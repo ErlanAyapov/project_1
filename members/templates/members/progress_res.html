@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="progress-result-container">
+		<div class="progress-result-block">
+			<div class="result-all-answers">Барлығы: {{ object.result_all }}</div>
+			<div class="result-true-answers">Дұрыс: {{ object.result_true }}</div>
+			<div class="result-false-answers">Қате: {{ object.result_false }}</div>
+		</div>
+		<hr>
+		<br>
+		<h3>Қате сұрақтар!!!</h3>
+		<div class="false-answers">
+			<ul>
+				{{ object.false_answers|slice:"9:"|safe }}
+			</ul>
+
+		</div>
+		<p><a href="{% url 'user_profile' object.user.id %}">~ {{ object.user }}</a></p>
+	</div>
+{% endblock %}

@@ -40,4 +40,4 @@ class UserPictureUpdate(forms.ModelForm):
 class UserProgressSave(forms.ModelForm):
 	class Meta:
 		model = UserProgress
-		fields = ('user', 'result_all', 'result_true', 'result_false', 'course')
+		fields = ('user', 'result_all', 'result_true', 'result_false', 'course', 'false_answers')

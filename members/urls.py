@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import pic_update, UserList, authentication, progress_save, logout, register, user_customer, UserProfile, UserUpdate
+from .views import pic_update, UserList, authentication, progress_save, logout, register, user_customer, UserProgressDetail, UserProfile, UserUpdate
 
 urlpatterns = [
 	path('', authentication, name = 'members'),
@@ -10,5 +10,6 @@ urlpatterns = [
 	path('update/<int:pk>/', UserUpdate.as_view(), name = 'user_update'),
 	path('picture/<int:pk>/', pic_update, name = 'user_picture_update'),
 	path('save-progress/<int:pk>/', progress_save, name = 'progress_save'),
+	path('answers/<int:pk>/', UserProgressDetail.as_view(), name = 'user_progress'),
 	path('users/', UserList.as_view(), name = 'users'),
 ]

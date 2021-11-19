@@ -701,6 +701,67 @@ footer {
 	/*box-shadow: 0 0 15px #fff;*/
 	text-shadow: 0 0 10px #fff;
 }
+/*************************/
+.progress-result-container {
+	width: 500px;
+	margin: auto;
+	font-size: 20px;
+	color: #fff;
+	margin-top: 5%;
+	background: rgba(0, 0, 0, 0.5);
+	
+}
+.progress-result-container div{
+	padding: 10px;
+}
+.progress-result-container h3 {
+	text-align: center;
+	color: red;
+}
+.progress-result-block {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}
+.false-answers {
+	color: yellow;
+	display: flex;
+	justify-content: center;
+}
+.false-answers ul li {
+	margin-bottom: 7px;
+}
+.progress-result-container p {
+	text-align: center;
+	padding: 10px;
+}
+.progress-result-container p a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.result-block-profile table {
+	background: #000;
+}
+.result-block-profile table th {
+	background: green;
+}
+.result-block-profile table td {
+	background: gray;
+	color: #000;
+}
+.result-block-profile table a {
+	text-decoration: none;
+	color: blue;
+	font-family: monospace;
+}
+
+/*************************/
+
+
+
+
 
 
 

@@ -39,6 +39,6 @@ class UserProgress(models.Model):
     result_all   = models.IntegerField('Жалпы сұрақ')
     result_true  = models.IntegerField('Қате сұрақ')
     result_false = models.IntegerField('Дұрыс сұрақ')
-
+    false_answers = models.TextField('Қате сұрақтар ', blank = True)
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name} | Жалпы:{self.result_all}, Дұрыс:{self.result_true}, Қате:{self.result_false}'

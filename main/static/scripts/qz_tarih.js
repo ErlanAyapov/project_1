@@ -3,6 +3,9 @@
 //  | функциясының бір бөлігі орындалуы керек болғандықтан  |
 //  | сол бөлікті көшіріп қойдым, бұл қателік емес!!!       |
 //	|=======================================================|
+
+var false_answers_textarea;
+
 while (run) {
 	question_id = getRandomInt(questions.length);
 	if (!last_questions.includes(question_id)) {
@@ -78,6 +81,7 @@ function getRandomInt(max) {
 
 function make_question() {
 	
+	 
 	// Функцияның 1-ші бөлігі
 	while (run) {
 		question_id = getRandomInt(questions.length);
@@ -145,9 +149,14 @@ function make_question() {
 		true_questions = []
 		false_questions = []
 	}
-	
-	};	
 
+	
+	document.getElementById('id_false_answers').value = false_answers_textarea;
+	
+	
+	};
+	 
+	
 	// Функцияның 4-ші бөлігі
 	function check_1() {
 		if (document.getElementById('answer_1').value == answers[question_id]) {
@@ -159,6 +168,7 @@ function make_question() {
 			false_questions.push(question_id)
 			alert('Дұрыс емес :(')
 			make_question();
+			false_answers_textarea += '<li>' + questions[question_id] + '? </li>';
 			}
 					 
 		}
@@ -172,6 +182,8 @@ function make_question() {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
 			make_question();
+			false_answers_textarea += '<li>' + questions[question_id] + '? </li>';
+
 			}
 		}
 	function check_3() { 
@@ -184,6 +196,8 @@ function make_question() {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
 			make_question();
+			false_answers_textarea += '<li>' + questions[question_id] + '? </li>';
+
 		}
 	}
 	function check_4() { 
@@ -191,28 +205,12 @@ function make_question() {
 			true_qestions.push(question_id)	
 			alert('Дұрыс!');	
 			make_question();
+			false_answers_textarea += '<li>' + questions[question_id] + '? </li>';
+
 		}
 		else {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
 			make_question();
 		}
-	};
-
-
-// function screen_shot(){
-// 	html2canvas(document.getElementById("portret_id").value ).then(function(canvas) {
-// 		// var logo = document.getElementById('id_des_image');
-// 		var my_screen = canvas.toDataURL();
-// 		logo.value = my_screen;
-// 		console.log(my_screen)
-// 		// document.getElementById('rm').src = my_screen;
-// 	});	
-	
-// };
-
-// function result() {
-// 	true_qestions_input.value = true_questions.length;
-// 	false_qestions_input.value = false_questions.length;
-// 	all_qestions_input.value = last_questions.length;
-// }
+	}; 

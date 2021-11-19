@@ -76,24 +76,6 @@ def user_customer(request, pk):
 	return render(request, 'members/customer.html', data)
 
 
-# def user_customer(request, pk):
-# 	if request.method == 'POST':
-# 		form = UserCustomerForm(request.POST)
-# 		if form.is_valid():
-# 			form.save(commit = False)
-# 			form.user = request.user
-# 			form.save()
-# 			return redirect('main')
-		 
-
-# 	form = UserCustomerForm()
-# 	data = {
-# 		'customer_form':form,
-# 		'day':range(1, 32, 1),
-# 		'mounth':['Қаңтар', 'Ақпан', 'Наурыз', 'Сәуір', 'Мамыр', 'Маусым', 'Шілде', 'Тамыз', 'Қырқүйек', 'Қазан', 'Қараша', 'Желтоқсан'],
-# 		'year':range(2013, 1970, -1),
-# 	}
-# 	return render(request, 'members/customer.html', data)
 
 
 class UserProfile(DetailView):
@@ -104,9 +86,14 @@ class UserProfile(DetailView):
 		context = super(UserProfile, self).get_context_data(**kwargs)
 		context['last_progress'] = UserProgress.objects.all()
 		context['user_profile'] = UserPicture.objects.order_by('-pk')
-		# context['request_user'] = User.user.id
 
 		return context
+
+
+class UserProgressDetail(DetailView):
+	model = UserProgress
+	template_name = 'members/progress_res.html'
+
 
 
 class UserUpdate(CreateView):
@@ -119,20 +106,6 @@ class UserUpdate(CreateView):
 		return redirect('main')
 
 
-
-# class PictureUserUpdate(UpdateView):
-	
-# 	model = Customer
-# 	# form_class = UserPictureUpdate()
-# 	# slug_field = 'id'
-# 	template_name = 'members/update_picture.html'
-
-# 	fields = ['profile_photo', 'image']
-# 	def form_valid(self, form):
-# 		form.save()
-# 		return redirect('main')
-# 	def get_object(self, queryset=None):
-# 		return get_object_or_404(Customer, pk=self.kwargs.get('pk'))
 
 def pic_update(request, pk):
 	if request.method == 'POST':

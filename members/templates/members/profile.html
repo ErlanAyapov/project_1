@@ -36,6 +36,7 @@
 								<th>Барлығы</th> 
 								<th>Дұрыс</th> 
 								<th>Қате</th>
+								<th>Қате сұрақтар</th>
 							</tr>
 						{% for last_progress in last_progress %}
 						{% if last_progress.user.id == user.id %}
@@ -44,6 +45,9 @@
 							<td colspan="1" style="text-align:center;">{{ last_progress.result_all }}</td>
 							<td colspan="1" style="text-align:center;">{{ last_progress.result_true }}</td>
 							<td colspan="1" style="text-align:center;">{{ last_progress.result_false }}</td>
+							<td colspan="1" style="text-align:center;">
+								<a href="{% url 'user_progress' last_progress.id %}">КӨРУ</a>
+							</td>
 						</tr>	 
 						{% endif %}
 						{% endfor %}
