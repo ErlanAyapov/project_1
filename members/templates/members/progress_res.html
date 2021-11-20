@@ -9,6 +9,7 @@
 		</div>
 		<hr>
 		<br>
+		{% if not object.result_false == 0 %}
 		<h3>Қате сұрақтар!!!</h3>
 		<div class="false-answers">
 			<ul>
@@ -16,6 +17,11 @@
 			</ul>
 
 		</div>
+		<p><a href="{% url 'user_profile' object.user.id %}">~ {{ object.user }}</a></p>
+		{% else %}
+		<h3 style="color: lightgreen;">Қате сұрақтар жоқ, жарайсың!</h3><br>
+
+		{% endif %}
 		<p><a href="{% url 'user_profile' object.user.id %}">~ {{ object.user }}</a></p>
 	</div>
 {% endblock %}
