@@ -10,12 +10,15 @@
 				{% for i in user_profile %}
 					{% if i.user.id == user.id %}
 						<img id="user_pic" src="{{ i.photo }}">
-
+						{{ "<!--" }}
+					{% elif user.customer.profile_photo %}
+						<img id="user_pic" src="{{ user.customer.profile_photo }}">
+						
 					{{ "<!--" }}
 					  {%endif%} 
 					{%endfor%}     
 					{{ "-->" }}
-			 
+			 		
 
 			</div>
 			<div class="profile-info">
