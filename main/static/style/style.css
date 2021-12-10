@@ -231,7 +231,7 @@ body {
 	color: white;
 	background: #5a585c;
 	padding: 10px;
-	border-radius: 20px		 20px;
+	border-radius: 20px 20px;
 
 }
 #question {
@@ -834,10 +834,16 @@ footer {
 	color: blue;
 	font-family: monospace;
 }
-
-
-
-
+/***********************************/
+.auth-block input {
+	width: 290px;
+	outline: none;
+	margin-top: 5px;
+	font-size: 18px;
+}
+.auth-block h2 {
+	text-align: center;
+}
 
 
 
@@ -851,7 +857,11 @@ footer {
 		position: absolute;
 		left: -260px;
 	}
-	
+	.answers:hover {
+		background: #555;
+		box-shadow: none;
+		text-shadow: none;
+	}
 	.main-container {
 		width: 80%;
 		margin: auto;
@@ -862,7 +872,6 @@ footer {
 		margin-bottom: 15px;
 	}
 	#ds {
-		
 		height: 50px;
 	}
 	.question-block input {
@@ -872,10 +881,7 @@ footer {
 		padding: 0;
 		font-size: 22px;
 		/*width: 150px;*/
-	}
-	.next-btn {
-
-	}
+	} 
 	.main-block h1 {
 		display: none;
 	}

@@ -21,7 +21,10 @@ class UserUpdateForm(forms.ModelForm):
 			'first_name': TextInput(attrs={'class': 'form-control','placeholder': 'Есімі',}),
 			'last_name':  TextInput(attrs={'class': 'form-control','placeholder': 'Тегі',}),
 			}
-
+class UserRegisterFinish(forms.ModelForm):
+	class Meta:
+		model = User
+		fields = ('first_name', 'last_name', 'email')
 
 class UserCustomerForm(forms.ModelForm):
 	class Meta:

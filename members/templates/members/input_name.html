@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	 
+	<div class="auth-container" style="width:100%; margin-top: 15vh;">
+			<div class="auth-block" >
+				<h2>Соңғы қадам</h2>
+				<form action="{% url 'register_continu' request.user.id %}" method="POST">
+					{% csrf_token %}
+					<input type="text" name="first_name" maxlength="150" id="id_first_name" placeholder="Аты">
+					<input type="text" name="last_name" maxlength="150" id="id_last_name" placeholder="Жөні">
+					<input type="email" name="email" maxlength="254" id="id_email" placeholder="Email">
+					<button class="submit">Кіру</button>
+				</form>
+				
+			</div>
+		</div>
+{% endblock %}

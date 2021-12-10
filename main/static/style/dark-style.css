@@ -758,6 +758,16 @@ footer {
 }
 
 /*************************/
+.auth-block input {
+	width: 290px;
+	outline: none;
+	margin-top: 5px;
+	font-size: 18px;
+}
+.auth-block h2 {
+	text-align: center;
+	color: white;
+}
 
 
 
@@ -775,7 +785,14 @@ footer {
 		position: absolute;
 		left: -260px;
 	}
-	
+	.answers:hover {
+		/*background: #000;
+		box-shadow: none;*/
+		text-shadow: none;
+		background: rgba(0, 0, 0, 0.5);
+		box-shadow: 0 0 5px cyan;
+
+	}
 	.main-container {
 		width: 80%;
 		margin: auto;

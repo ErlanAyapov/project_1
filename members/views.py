@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserCreateForm, UserUpdateForm, UserCustomerForm, UserPictureUpdate, UserProgressSave
+from .forms import UserRegisterFinish, UserCreateForm, UserUpdateForm, UserCustomerForm, UserPictureUpdate, UserProgressSave
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout as django_logout 
@@ -63,7 +63,7 @@ def user_customer(request, pk):
 			form.save(commit = False)
 			form.user = request.user
 			form.save()
-			return redirect('main')
+			return HttpResponseRedirect('/account/register/continue/' + str(request.user.id))
 		 
 
 	form = UserCustomerForm()
@@ -75,7 +75,14 @@ def user_customer(request, pk):
 	}
 	return render(request, 'members/customer.html', data)
 
-
+class UserRegisterFinishView(UpdateView):
+	model = User
+	form_class = UserRegisterFinish
+	template_name = 'members/input_name.html'
+	
+	def form_valid(self, form):
+		form.save()
+		return HttpResponseRedirect('/')
 
 
 class UserProfile(DetailView):
