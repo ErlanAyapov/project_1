@@ -3,13 +3,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, EmailInput
 from members.models import Customer, UserProgress, UserPicture
-from extra_views import CreateWithInlinesView, UpdateWithInlinesView, InlineFormSetFactory
+# from extra_views import CreateWithInlinesView, UpdateWithInlinesView, InlineFormSetFactory
 
 
-class UserCustomerUpdateForm(UpdateWithInlinesView):
-	class Meta:
-		model = Customer
-		fields = ['profile_photo']
+# class UserCustomerUpdateForm(forms.ModelForm):
+# 	class Meta:
+# 		model = Customer
+# 		fields = ['profile_photo']
 
 
 

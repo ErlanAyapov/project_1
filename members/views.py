@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserCustomerUpdateForm, UserRegisterFinish, UserCreateForm, UserUpdateForm, UserCustomerForm, UserPictureUpdate, UserProgressSave
+from .forms import  UserRegisterFinish, UserCreateForm, UserUpdateForm, UserCustomerForm, UserPictureUpdate, UserProgressSave
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout as django_logout 
@@ -192,11 +192,11 @@ class UserList(ListView):
 #     fields = ['profile_photo', 'user']
 #     template_name = 'members/user_update.html'
 
-class UserCustomerUpdateView(UpdateView):
-	model = Customer
-	form_class = UserCustomerUpdateForm
-	template_name = 'members/user_update.html'
+# class UserCustomerUpdateView(UpdateView):
+# 	model = Customer
+# 	form_class = UserCustomerUpdateForm
+# 	template_name = 'members/user_update.html'
 	
-	def form_valid(self, form):
-		form.save()
-		return HttpResponseRedirect('/')
+# 	def form_valid(self, form):
+# 		form.save()
+# 		return HttpResponseRedirect('/')
