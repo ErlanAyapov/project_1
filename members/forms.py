@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm, TextInput, DateTimeInput, Textarea, EmailInput
 from members.models import Customer, UserProgress, UserPicture
+from extra_views import CreateWithInlinesView, UpdateWithInlinesView, InlineFormSetFactory
+
+
+class UserCustomerUpdateForm(UpdateWithInlinesView):
+	class Meta:
+		model = Customer
+		fields = ['profile_photo']
+
 
 
 class UserCreateForm(UserCreationForm):
@@ -29,7 +37,9 @@ class UserRegisterFinish(forms.ModelForm):
 class UserCustomerForm(forms.ModelForm):
 	class Meta:
 		model = Customer
-		fields = ('user', 'birth_day', 'birth_mounth', 'birth_year', 'profile_photo')
+		fields = ('user', 'birth_day', 'birth_mounth', 'birth_year')
+
+
 
 
 class UserPictureUpdate(forms.ModelForm):

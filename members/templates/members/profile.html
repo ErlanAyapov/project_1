@@ -1,26 +1,60 @@
-		{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<br>
+<div class="profile-head clear-fix">
+	<div class="image-block-container">
+		<div class="image-block">
+			<img src="{{ user.userpicture.photo }}">
+		</div>
+		<p>{{ user.first_name }} {{ user.last_name }}</p>
+		<!-- <p><a href="{% url 'user_picture_update' request.user.id %}">Upate Picture</a></p> -->
 
-	<div class="profile-container">
-		<div class="profile-block">
-			<div class="image-block">
+	</div>
+	<div class="text-info">
+		<div class="">
+			<p>{{ user.email|slice:":5" }}~~~{{ user.email|slice:"15:" }}</p>
+			<p>{{ user.customer.birth_day }} {{ user.customer.birth_mounth }} {{ user.customer.birth_year }} жыл</p>
+			<p><a href="{% url 'logout' %}">Logout</a></p>
+		</div>
 			
-				 
-				{% for i in user_profile %}
-					{% if i.user.id == user.id %}
-						<img id="user_pic" src="{{ i.photo }}">
-						{{ "<!--" }}
-					{% elif user.customer.profile_photo %}
-						<img id="user_pic" src="{{ user.customer.profile_photo }}">
-						
-					{{ "<!--" }}
-					  {%endif%} 
-					{%endfor%}     
-					{{ "-->" }}
-			 		
+		<!-- <div class="custom-info">
+			<p>Туылғанкүн {{ user.customer.birth_mounth }} {{ user.customer.birth_day }}, {{ user.customer.birth_year }} жыл</p>
+			<p>{{ user.email|slice:":5" }}~~~{{ user.email|slice:"15:" }}</p>
+		</div> -->
+	</div>
+</div>
+	
+	
+		<div class="post-container">
+		{% for post in posts %}
+		{% if post.author.id == user.id %}
+			<div class="post-block">
+				
+				<!-- <div class="post-title">
+					<h2>{{ post.title }}</h2>
+				</div> -->
+				<div class="post-body">
+					<br>
+					{{ post.body }}
+				</div>
 
+				{% if post.image %}
+				<div class="post-img">
+					<img src="{{ post.image }}">					
+				</div>
+				{% endif %}
+				<div class="info">
+					{{ post.date|slice:":16" }}
+				</div>
 			</div>
+		{% endif %}
+
+		{% endfor %}
+	
+	<!-- <div class="profile-container">
+		<div class="profile-block">
+			
 			<div class="profile-info">
 				<h2>{{ user.first_name }} {{ user.last_name }}</h2>
 				<p>@{{ user.username }}</p>
@@ -63,7 +97,7 @@
  
 
 		</div>
-	</div>
+	</div> -->
 
 
 

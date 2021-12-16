@@ -1,11 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="kk">
 <head>
-
-	<meta charset="utf-8">
 	<title>Electro Eyes</title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" id="theme">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/responsive.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/demo.css' %}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="{% static 'image/logo_32.png' %}">
 </head>
@@ -62,13 +63,12 @@
 				 		<li><a class="" href="{% url 'members' %}">Аккаунт</a></li>
 				 	{% else %}
 				 		<li><a class="" href="{% url 'user_profile' request.user.id %}">@{{ request.user }}</a></li>
-				 		
+				 		<li><a class="" href="{% url 'users' %}">Қолданушылар</a></li>
+						<li><a class="" href="{% url 'post_add' %}">Жаңалық қосу</a></li>
 					{% endif %}
-					<li><a class="" href="{% url 'users' %}">Қолданушылар</a></li>
-					<li><a class="disabled" href="#/">Жаңалықтар</a></li>
+					
 					<li><a class="disabled" href="#/">Досымды қос</a></li>
 					<li><a class="disabled" href="#/">Дайындық</a></li>
-					<li><a class="disabled" href="#/">Серіктес болу</a></li>
 					 
 				</ul>
 			</nav>

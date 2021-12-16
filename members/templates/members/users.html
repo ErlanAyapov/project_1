@@ -14,16 +14,9 @@
 			<div class="users-block">
 				<div class="users-block-img">
 
-					{% for i in user_profile %}
-					{% if i.user.id == obb.id %}
-					<img id="user_pic" src="{{ i.photo }}" width="100">
-					{{ "<!--" }}
-					{% elif obb.customer.profile_photo %}
-						<img id="user_pic" src="{{ obb.customer.profile_photo }}">
-					{{ "<!--" }}
-					{%endif%} 
-					{%endfor%}     
-					{{ "-->" }}
+					
+					<img id="user_pic" src="{{ obb.userpicture.photo }}" width="100">
+					
 				</div>
 				{% if obb.first_name %}
 				<a href="{% url 'user_profile' obb.id %}" >{{ obb.first_name }} {{ obb.last_name }}</a>	

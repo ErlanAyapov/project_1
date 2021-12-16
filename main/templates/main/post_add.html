@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="post-add-container">
+		<div class="post-form">
+			<form action="" method="post">
+				{% csrf_token %}
+				<input type="text" name="title" maxlength="500" required id="id_title" placeholder="Тақырып">
+				<textarea name="body" cols="40" rows="10" required id="id_body" placeholder="Мәтін"></textarea>
+				<textarea name="image" cols="40" rows="10" id="id_image"></textarea>
+				<input type="file" name="im" title="Сурет таңдаңыз" accept="image/*" id="id_p" onchange="encodeImageFileAsURL(this, input_id = 'id_image')" />
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}

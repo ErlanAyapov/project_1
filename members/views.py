@@ -1,17 +1,51 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegisterFinish, UserCreateForm, UserUpdateForm, UserCustomerForm, UserPictureUpdate, UserProgressSave
+from .forms import UserCustomerUpdateForm, UserRegisterFinish, UserCreateForm, UserUpdateForm, UserCustomerForm, UserPictureUpdate, UserProgressSave
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django.contrib.auth import logout as django_logout 
-from django.views.generic import ListView, DetailView, UpdateView, CreateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.contrib.auth.models import User
 from .models import Customer, UserProgress, UserPicture
 from django.shortcuts import get_object_or_404
 import base64
 from .models import *
+from main.models import Post
+# from extra_views import CreateWithInlinesView, UpdateWithInlinesView, InlineFormSetFactory
 
+
+class DeletePostView(DeleteView):
+	model = UserPicture
+	template_name = 'delete_image.html'
+	success_url = HttpResponseRedirect('/')
+
+def pic_update(request, pk):
+	if request.method == 'POST':
+		form = UserPictureUpdate(request.POST)
+		DeletePostView(request.user.customer)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/account/profile/' + str(request.user.id))
+		 
+
+	form = UserPictureUpdate()
+	data = {
+		'form_picture':form,
+		 
+	}
+	return render(request, 'members/update_picture.html', data)
+
+
+class UserRegisterFinishView(UpdateView):
+	model = User
+	form_class = UserRegisterFinish
+	template_name = 'members/input_name.html'
+	
+	def form_valid(self, form):
+		form.save()
+		return HttpResponseRedirect('/account/picture/' + str(self.request.user.id))
 
 def register(request):
+	global request_user
 	error = ''
 	if request.method == 'POST':
 		form = UserCreateForm(request.POST)
@@ -22,6 +56,7 @@ def register(request):
 			user = authenticate(request, username = username, password = password)
 			if user is not None: 
 				login(request, user)
+				request_user = request.user.id
 				return HttpResponseRedirect('/account/register/' + str(request.user.id))
 				# return redirect('main')
 		else:
@@ -49,6 +84,7 @@ def authentication(request):
 		user = authenticate(request, username = username, password = password)
 		if user is not None: 
 			login(request, user)
+			request_user = request.user.id
 			return redirect('main')
 		else:
 			error = 'Логин және құпия сөз сәйкес емес немес сізде аккаунт жоқ!'
@@ -75,14 +111,7 @@ def user_customer(request, pk):
 	}
 	return render(request, 'members/customer.html', data)
 
-class UserRegisterFinishView(UpdateView):
-	model = User
-	form_class = UserRegisterFinish
-	template_name = 'members/input_name.html'
-	
-	def form_valid(self, form):
-		form.save()
-		return HttpResponseRedirect('/')
+
 
 
 class UserProfile(DetailView):
@@ -92,6 +121,7 @@ class UserProfile(DetailView):
 	def get_context_data(self, **kwargs):
 		context = super(UserProfile, self).get_context_data(**kwargs)
 		context['last_progress'] = UserProgress.objects.all()
+		context['posts'] = Post.objects.all()
 		context['user_profile'] = UserPicture.objects.order_by('-pk')
 
 		return context
@@ -155,3 +185,18 @@ class UserList(ListView):
 		context = super(UserList, self).get_context_data(**kwargs)
 		context['user_profile'] = UserPicture.objects.order_by('-pk')
 		return context
+
+# class UpdateCustomerView(UpdateWithInlinesView):
+#     model = Customer
+#     inlines = [User]
+#     fields = ['profile_photo', 'user']
+#     template_name = 'members/user_update.html'
+
+class UserCustomerUpdateView(UpdateView):
+	model = Customer
+	form_class = UserCustomerUpdateForm
+	template_name = 'members/user_update.html'
+	
+	def form_valid(self, form):
+		form.save()
+		return HttpResponseRedirect('/')

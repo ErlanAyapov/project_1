@@ -1,13 +1,55 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
-from .models import Question
-# import os
-
+from .models import Post
+from .forms import PostCreateForm
+import datetime
+from members.models import UserPicture
 
 class MainView(ListView):
-	model = Question
+	model = Post
 	ordering = '-id'
 	template_name = 'main/index.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(MainView, self).get_context_data(**kwargs)
+		context['user_pic'] = UserPicture.objects.order_by('-pk')
+
+def main_view(request):
+	post = Post.objects.order_by('-pk')
+	user_pic = UserPicture.objects.order_by('-pk')
+
+	data = {
+		'posts':post,
+		'user_pic':user_pic
+	}
+	return render(request, 'main/index.html', data)
+
+def post_add(request):
+
+	if request.method == 'POST':
+		form = PostCreateForm(request.POST)
+
+		if form.is_valid():
+			form = form.save(commit = False)
+			form.date = datetime.datetime.now()
+			form.author = request.user
+			form.save()
+			return redirect('main')
+
+
+	form = PostCreateForm()
+	data = {
+		'post_form':form,
+	}
+	return render(request, 'main/post_add.html', data)
+
+
+
+
+
+
+
+
 
 # print(os.path.abspath(os.curdir))
 '''
@@ -15,7 +57,8 @@ class MainView(ListView):
 # |=================================|
 # | Бұл код ақпараттарды 'data.txt' |
 # | файлынан, 'db.sqlite3' файлына  |
-# | жазу үшін қолданылды			|
+# | жазу үшін қолданылды, толық 	|
+# | ақпарат алу үшін +(747)816-04-85|
 # |=================================|
 
 

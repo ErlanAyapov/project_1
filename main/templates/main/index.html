@@ -5,11 +5,53 @@
 		<h1>Бұл - Electro Eyes<br>Қош келдің!</h1>
 	</div>
  -->
+	{% if not request.user.is_authenticated %}
 	<div class="about-container">
 		<div class="about-text-main">
-			<p><strong>Electro Eyes</strong> <hr><br>
-				Өз біліміңді бақылауда ұста! Бұл 5 пен 11 сынып арасындағы материалдарды қайталауға арналған платформа. Бұл білім беретін сайт болып <span>табылмайды!</span> Сайт қауіпсіздігі <a href="https://www.immuniweb.com">Website Security Test</a> сервисімен тексерілген. Қазірше тест тек Қазақастан тарихынан алдағы уақытта басқа сабақтарды қосу жоспарда бар. Қазақастан тарихынан тест тапсыру үшін осы <a href="{% url 'q_tarih' %}">сілтемені</a> басыңыз немесе " ☰ " , " Тест тапсыру " сөзіне басыңыз. Ерікті түрде жобаның дамуына үлес қосқыңыз келсе осы <a href="https://wa.me/+77478160485?text=Сәлем%2C+командаға+қосылу+бойынша+сұрағым+бар+еді?" color='blue' target="_blank">сілтемені</a> басыңыз. </p>
+			<p><strong>Monitoring brain</strong><hr><br>
+				Қош келдің! Бұл monitoring brain платформасы.  Сен сабақ қайталауға көп уақыт құртып жүрсің бе? Уақытыңды үнемдегің келеді ме? Біз саған көмектесеміз!
+			</p>
+			<img src="{% static 'image/help.webp' %}"><br>
+			Егер сен білім шыңына шыққан болсаң, онда бізге сенің <a href="https://wa.me/+77478160485?text=Сәлем%2C+командаға+қосылу+бойынша+сұрағым+бар+еді?" color='blue' target="_blank">көмегің керек</a>.
 		</div>
+		<!-- <a href="https://wa.me/+77478160485?text=Сәлем%2C+командаға+қосылу+бойынша+сұрағым+бар+еді?" color='blue' target="_blank"> -->
 	</div>
+	{% else %}
+		
+		{% if posts %}
+		<div class="post-container">
+		{% for post in posts %}
+			<div class="post-block">
+				<div class="post-head">
+					<a href="{% url 'user_profile' post.author.id %}">
+						<div class="posts-block-img">
+							<img id="user_pic" src="{{ post.author.userpicture.photo }}" width="100">
+						</div>
+						
+						<div class="post-author">
+						{{ post.author.first_name }} {{ post.author.last_name }}
+						</div>
+					</a>
+				</div>
+				<!-- <div class="post-title">
+					<h2>{{ post.title }}</h2>
+				</div> -->
+				<div class="post-body">
+					{{ post.body }}
+				</div>
+
+				{% if post.image %}
+				<div class="post-img">
+					<img src="{{ post.image }}">					
+				</div>
+				{% endif %}
+				<div class="info">
+					{{ post.date|slice:":16" }}
+				</div>
+			</div>
+		{% endfor %}
+		{% endif %}
+		
+	{% endif %}	
 {% endblock %}
 

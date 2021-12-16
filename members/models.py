@@ -7,17 +7,20 @@ class Customer(models.Model):
     birth_day = models.IntegerField('Туылған күні')
     birth_mounth = models.CharField('Туылған айы', max_length = 10)
     birth_year = models.IntegerField('Туылған жылы')
-    image = models.ImageField('Сурет: ', upload_to = 'user', blank = True)
-    profile_photo = models.TextField('Сурет (Base 64) ', default = 'sds')
-
+    
     def __str__(self):
         return str(self.user)
 
 
 
 class UserPicture(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     photo = models.TextField('Сурет: (Base 64) ')
+    def __str__(self):
+        return str(self.user)
+
+
 
 class UserProgress(models.Model):
 
