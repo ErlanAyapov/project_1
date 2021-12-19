@@ -14,14 +14,39 @@
 	<div class="text-info">
 		<div class="">
 			<p>{{ user.email|slice:":5" }}~~~{{ user.email|slice:"15:" }}</p>
-			<p>{{ user.customer.birth_day }} {{ user.customer.birth_mounth }} {{ user.customer.birth_year }} жыл</p>
-			<p><a href="{% url 'logout' %}">Logout</a></p>
+			<p>{{ user.customer.birth_day }} {{ user.customer.birth_mounth }} {{ user.customer.birth_year }} жыл</p><br>
+			<p><a class="" id="switch_mod" style="cursor: pointer;">
+			Дизайн ауыстыру</a></p>
+			<div class="result-block-profile">
+					<details>
+						<summary><h3>Білім деңгейі</h3></summary>
+						<table class="">
+							<tr>
+								<th>Сабақ</th> 
+								<!-- <th>Барлығы</th>  -->
+								<th>Дұрыс</th> 
+								<th>Қате</th>
+								<th>Қате сұрақтар</th>
+							</tr>
+						{% for last_progress in last_progress %}
+						{% if last_progress.user.id == user.id %}
+						<tr>
+							<td colspan="1" style="text-align:center;">{{ last_progress.course }}</td>
+							<!-- <td colspan="1" style="text-align:center;">{{ last_progress.result_all }}</td> -->
+							<td colspan="1" style="text-align:center;">{{ last_progress.result_true }}</td>
+							<td colspan="1" style="text-align:center;">{{ last_progress.result_false }}</td>
+							<td colspan="1" style="text-align:center;">
+								<a href="{% url 'user_progress' last_progress.id %}">Толығырақ</a>
+							</td>
+						</tr>	 
+						{% endif %}
+						{% endfor %}
+						</table>
+					</details>
+					
+				</div>
 		</div>
-			
-		<!-- <div class="custom-info">
-			<p>Туылғанкүн {{ user.customer.birth_mounth }} {{ user.customer.birth_day }}, {{ user.customer.birth_year }} жыл</p>
-			<p>{{ user.email|slice:":5" }}~~~{{ user.email|slice:"15:" }}</p>
-		</div> -->
+		 
 	</div>
 </div>
 	
@@ -47,6 +72,7 @@
 				<div class="info">
 					{{ post.date|slice:":16" }}
 				</div>
+
 			</div>
 		{% endif %}
 

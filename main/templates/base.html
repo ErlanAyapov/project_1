@@ -62,7 +62,7 @@
 					{% if not request.user.is_authenticated %}
 				 		<li><a class="" href="{% url 'members' %}">Аккаунт</a></li>
 				 	{% else %}
-				 		<li><a class="" href="{% url 'user_profile' request.user.id %}">@{{ request.user }}</a></li>
+				 		
 				 		<li><a class="" href="{% url 'users' %}">Қолданушылар</a></li>
 						<li><a class="" href="{% url 'post_add' %}">Жаңалық қосу</a></li>
 					{% endif %}
@@ -72,8 +72,24 @@
 					 
 				</ul>
 			</nav>
-			<p class="about-text"><a class="" id="switch_mod" style="cursor: pointer;">Дизайн ауыстыру</a></p>
-<!-- Product by: <a href="https://wa.me/+77478160485?text=Сәлем%2C+https://alternative-tarih.herokuapp.com/+осы+сайт+бойынша+сұрағым+бар+еді?" color='blue' target="_blank">Erlan Aiapov</a> -->
+				{% if request.user.is_authenticated %}
+				<div class="about-text">
+					<div class="user-nav-block">
+						<img src="{{ request.user.userpicture.photo }}">
+					</div>
+					<div class="user-nav-name-block">
+						<a class="" href="{% url 'user_profile' request.user.id %}">{{ request.user.first_name }} {{ request.user.last_name }}</a>
+					</div>
+					<div class="nav-acc-logout">
+						<a href="{% url 'logout' %}">шығу</a>
+					</div>
+				</div>
+				{% endif %}
+			
+<!-- Product by: <a href="https://wa.me/+77478160485?text=Сәлем%2C+https://alternative-tarih.herokuapp.com/+осы+сайт+бойынша+сұрағым+бар+еді?" color='blue' target="_blank">Erlan Aiapov</a> 
+<a class="" id="switch_mod" style="cursor: pointer;">
+			Дизайн ауыстыру</a>
+-->
 
 		</div>
 		<div class="ds">
