@@ -10,7 +10,7 @@
 		<div class="output-image">
 			<img src="" id="blah" alt="Сіз әлі сурет таңдамадыңыз">
 		</div>
-		<form action="{% url 'user_picture_update_1' request.user.id %}" method="POST">
+		<form action="{% url 'user_picture_update_1' request.user.userpicture.id %}" method="POST">
 			{% csrf_token %}
 			<input type="hidden" name="user" required id="id_user" value="{{ request.user.id }}">
 			<textarea name="photo" cols="40" rows="10" required id="id_photo"></textarea>

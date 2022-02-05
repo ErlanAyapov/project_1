@@ -5,7 +5,7 @@
 <div class="profile-head clear-fix">
 	<div class="image-block-container">
 		{% if request.user.id == user.id %}
-		<p><a href="{% url 'user_picture_update_1' request.user.id %}">Суретті өзгерту</a></p>
+		<p><a href="{% url 'user_picture_update_1' user.userpicture.id %}">Суретті өзгерту</a></p>
 		{% else %}
 		<style type="text/css">
 			.image-block {
