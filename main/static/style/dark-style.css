@@ -767,7 +767,10 @@ footer {
 	text-align: center;
 	color: white;
 }
-
+.image-block-container a {
+	text-decoration: none;
+	color: blue;
+}
 
 
 
@@ -868,8 +871,7 @@ footer {
 	margin-bottom: ;
 	width: 256px;
 	height: 256px;
-	border-top-left-radius: 12px;
-	border-top-right-radius: 12px;
+	
 
 }
 .image-block img {

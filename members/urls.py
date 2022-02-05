@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import UserRegisterFinishView, pic_update, UserList, authentication, progress_save, logout, register, user_customer, UserProgressDetail, UserProfile, UserUpdate
+from .views import CustomeUpdateView, UserRegisterFinishView, pic_update, UserList, authentication, progress_save, logout, register, user_customer, UserProgressDetail, UserProfile, UserUpdate
 
 urlpatterns = [
 	path('', authentication, name = 'members'),
@@ -9,6 +9,7 @@ urlpatterns = [
 	path('profile/<int:pk>/', UserProfile.as_view(), name = 'user_profile'),
 	# path('update/<int:pk>/', UpdateCustomerView.as_view(), name = 'user_update'),
 	path('picture/<int:pk>/', pic_update, name = 'user_picture_update'),
+	path('picture/to/<int:pk>/', CustomeUpdateView.as_view(), name = 'user_picture_update_1'),
 	path('save-progress/<int:pk>/', progress_save, name = 'progress_save'),
 	path('answers/<int:pk>/', UserProgressDetail.as_view(), name = 'user_progress'),
 	path('users/', UserList.as_view(), name = 'users'),

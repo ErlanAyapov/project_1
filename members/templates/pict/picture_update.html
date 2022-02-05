@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="update-picture-container">
+		<div class="input-image">
+			<label for="id_image">Сурет таңдау</label>
+			<input type="file" name="image" title="Сурет таңдаңыз" accept="image/*" id="id_image" onchange="encodeImageFileAsURL(this, input_id = 'id_photo')" />
+		</div>
+		<div class="output-image">
+			<img src="" id="blah" alt="Сіз әлі сурет таңдамадыңыз">
+		</div>
+		<form action="{% url 'user_picture_update_1' request.user.id %}" method="POST">
+			{% csrf_token %}
+			<input type="hidden" name="user" required id="id_user" value="{{ request.user.id }}">
+			<textarea name="photo" cols="40" rows="10" required id="id_photo"></textarea>
+			<button type="submit" id="btn_upd">Өзгерту</button>
+		</form>
+	</div>
+{% endblock %}

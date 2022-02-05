@@ -28,6 +28,9 @@
 	.profile-head {
 		width: 95%;
 	}
+	.image-block-container a {
+		font-size: 14px;
+	}
 }
 
 @media screen and (max-width: 1095px) {
@@ -191,7 +194,11 @@
 		padding: 0;
 	}
 	header {
-		display: none;
+		font-size: 12px;
+	}
+	#open_menu 	{
+		top: 8px;
+		font-size: 15px;
 	}
 }
 

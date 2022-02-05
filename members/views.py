@@ -19,13 +19,15 @@ class DeletePostView(DeleteView):
 	success_url = HttpResponseRedirect('/')
 
 def pic_update(request, pk):
+	
+
 	if request.method == 'POST':
 		form = UserPictureUpdate(request.POST)
-		DeletePostView(request.user.customer)
+		
 		if form.is_valid():
 			form.save()
 			return HttpResponseRedirect('/account/profile/' + str(request.user.id))
-		 
+		
 
 	form = UserPictureUpdate()
 	data = {
@@ -185,6 +187,17 @@ class UserList(ListView):
 		context = super(UserList, self).get_context_data(**kwargs)
 		context['user_profile'] = UserPicture.objects.order_by('-pk')
 		return context
+
+class CustomeUpdateView(UpdateView):
+    model = UserPicture
+    form_class = UserPictureUpdate
+    template_name = 'pict/picture_update.html'
+     
+    def form_valid(self, form):
+        form.save()
+        return HttpResponseRedirect(f'/account/profile/{ self.request.user.id}/')
+
+
 
 # class UpdateCustomerView(UpdateWithInlinesView):
 #     model = Customer

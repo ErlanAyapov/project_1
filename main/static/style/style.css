@@ -816,6 +816,13 @@ footer {
 .auth-block h2 {
 	text-align: center;
 }
+.image-block-container a {
+	text-decoration: none;
+	color: blue;
+}
+
+
+
 
 
 

@@ -4,12 +4,23 @@
 <br>
 <div class="profile-head clear-fix">
 	<div class="image-block-container">
+		{% if request.user.id == user.id %}
+		<p><a href="{% url 'user_picture_update_1' request.user.id %}">Суретті өзгерту</a></p>
+		{% else %}
+		<style type="text/css">
+			.image-block {
+				border-top-left-radius: 12px;
+				border-top-right-radius: 12px;
+			}
+		</style>
+		{% endif %}
+
 		<div class="image-block">
 			<img src="{{ user.userpicture.photo }}">
 		</div>
+		
 		<p>{{ user.first_name }} {{ user.last_name }}</p>
-		<!-- <p><a href="{% url 'user_picture_update' request.user.id %}">Upate Picture</a></p> -->
-
+		
 	</div>
 	<div class="text-info">
 		<div class="">

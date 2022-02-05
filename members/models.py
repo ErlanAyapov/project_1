@@ -17,6 +17,7 @@ class UserPicture(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     photo = models.TextField('Сурет: (Base 64) ')
+    
     def __str__(self):
         return str(self.user)
 
