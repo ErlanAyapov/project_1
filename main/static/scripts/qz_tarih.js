@@ -4,7 +4,7 @@
 //  | сол бөлікті көшіріп қойдым, бұл қателік емес!!!       |
 //	|=======================================================|
 
-var false_answers_textarea;
+var false_answers_textarea, false_answers_number = 0;
 
 while (run) {
 	question_id = getRandomInt(questions.length);
@@ -149,11 +149,6 @@ function make_question() {
 		true_questions = []
 		false_questions = []
 	}
-
-	
-	document.getElementById('id_false_answers').value = false_answers_textarea;
-	
-	
 	};
 	 
 	
@@ -168,8 +163,11 @@ function make_question() {
 			false_questions.push(question_id)
 			alert('Дұрыс емес :(')
 			make_question();
-			false_answers_textarea += '<li>' + questions[question_id] + '? </li>';
+			false_answers_number++
+			false_answers_textarea += '<li>' + false_answers_number + ') ' + questions[question_id] + '? </li>';
 			}
+			document.getElementById('id_false_answers').value = false_answers_textarea;
+
 					 
 		}
 	function check_2() { 
@@ -182,9 +180,12 @@ function make_question() {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
 			make_question();
-			false_answers_textarea += '<li>' + questions[question_id] + '? </li>';
+			false_answers_number++
+			false_answers_textarea += '<li>' + false_answers_number + ') ' + questions[question_id] + '? </li>';
 
 			}
+			document.getElementById('id_false_answers').value = false_answers_textarea;
+
 		}
 	function check_3() { 
 		if (document.getElementById('answer_3').value == answers[question_id]) {
@@ -196,16 +197,20 @@ function make_question() {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
 			make_question();
-			false_answers_textarea += '<li>' + questions[question_id] + '? </li>';
+			false_answers_number++
+			false_answers_textarea += '<li>' + false_answers_number + ') ' + questions[question_id] + '? </li>';
 
 		}
+			document.getElementById('id_false_answers').value = false_answers_textarea;
+
 	}
 	function check_4() { 
 		if (document.getElementById('answer_4').value == answers[question_id]) {
 			true_qestions.push(question_id)	
 			alert('Дұрыс!');	
 			make_question();
-			false_answers_textarea += '<li>' + questions[question_id] + '? </li>';
+			false_answers_number++
+			false_answers_textarea += '<li>' + false_answers_number + ') ' + questions[question_id] + '? </li>';
 
 		}
 		else {
@@ -213,4 +218,6 @@ function make_question() {
 			alert('Дұрыс емес :(')
 			make_question();
 		}
+			document.getElementById('id_false_answers').value = false_answers_textarea;
+
 	}; 

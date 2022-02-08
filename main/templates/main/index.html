@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block page_title %}
+	{% if request.user.is_authenticated %}
+		Жаңалықтар
+	{% else %}
+		Brain Training
+	{% endif %}
+{% endblock %}
+
 {% block content %}
 	<!-- <div class="welcome-text">
 		<h1>Бұл - Electro Eyes<br>Қош келдің!</h1>
@@ -19,19 +27,29 @@
 	</div>
 	{% else %}
 		
-		{% if posts %}
+		{% if posts %} 
 		<div class="post-container">
 		{% for post in posts %}
 			<div class="post-block">
 				<div class="post-head">
 					<a href="{% url 'user_profile' post.author.id %}">
 						<div class="posts-block-img">
-							<img id="user_pic" src="{{ post.author.userpicture.photo }}" width="100">
+							<img id="user_pic" src="{{ post.author.userpicture.photo }}" width="70">
 						</div>
 						
 						<div class="post-author">
 						{{ post.author.first_name }} {{ post.author.last_name }}
 						</div>
+						{% if request.user.id == post.author.id %}
+						<!-- <div>
+							<form action="{% url 'post_delete' post.id %}" method="POST">
+								{% csrf_token %}
+								<button type="submit">ЖОЮ</button>
+								 
+								
+							</form>
+						</div> -->
+						{% endif %}
 					</a>
 				</div>
 				<!-- <div class="post-title">

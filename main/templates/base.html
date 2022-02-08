@@ -2,14 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Electro Eyes</title>
+	<title>Brain Training</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" id="theme">
 	<link rel="stylesheet" type="text/css" href="{% static 'style/responsive.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'style/demo.css' %}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/png" href="{% static 'image/logo_48.png' %}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@1,300&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
 </head>
+
 <script type="text/javascript">
 		myStorage = window.localStorage;
 		let mod = localStorage.getItem('mod') 
@@ -25,7 +29,7 @@
 	
 	<header>
 		<div class="main-header">
-			<h1>{% block page_title %}Electro Eyes{% endblock %}</h1>
+			<h1>{% block page_title %}Brain Training{% endblock %}</h1>
 		</div>
 	</header>
 	<main>

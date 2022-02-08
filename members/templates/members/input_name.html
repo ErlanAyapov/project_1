@@ -3,7 +3,7 @@
 {% block content %}
 	 
 	<div class="auth-container" style="width:100%; margin-top: 15vh;">
-			<div class="auth-block" >
+			<div class="auth-block input-name" >
 				<h2>Соңғы қадам</h2>
 				<form action="{% url 'register_continu' request.user.id %}" method="POST">
 					{% csrf_token %}

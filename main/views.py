@@ -1,15 +1,22 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
-from .models import Post
-from .forms import PostCreateForm
-import datetime
+from django.http import HttpResponseRedirect
+from django.views.generic import ListView, DeleteView
 from members.models import UserPicture
+from .forms import PostCreateForm
+from .models import Post
+import datetime
+
+
+class PostDeleteView(DeleteView):
+	model = Post
+	template_name = 'main/post_delete.html'
+	success_url = HttpResponseRedirect('/')
+
 
 class MainView(ListView):
 	model = Post
 	ordering = '-id'
 	template_name = 'main/index.html'
-
 	def get_context_data(self, **kwargs):
 		context = super(MainView, self).get_context_data(**kwargs)
 		context['user_pic'] = UserPicture.objects.order_by('-pk')

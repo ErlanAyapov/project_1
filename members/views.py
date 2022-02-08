@@ -168,9 +168,8 @@ def progress_save(request, pk):
 			form.save(commit = False)
 			# form.user = request.user
 			form.save()
-			return redirect('main')
+			return HttpResponseRedirect('/account/profile/' + str(request.user.id))
 		 
-
 	form = UserProgressSave()
 	data = {
 		'progress_save_form':form,
