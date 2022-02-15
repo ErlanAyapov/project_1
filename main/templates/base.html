@@ -11,8 +11,7 @@
 	<link rel="icon" type="image/png" href="{% static 'image/logo_48.png' %}">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@1,300&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
-	<meta name="google-site-verification" content="EhEhNoG0y_AxsZB7y82X7NyailDevluSE_z-tfe0C10" />
+	<link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@1,300&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">	 
 </head>
 <script type="text/javascript" src="{% static 'scripts/jquery-3.6.0.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'scripts/scripts.js' %}"></script>
@@ -56,9 +55,9 @@
 					<li>
 						<details>
 							<summary>Сабақ қайталау</summary>
-							<ul>{% if request.user.is_authenticated %}
-								<li><a class="" href="{% url 'pro_tarih' %}">Қазақстан тарихы</a></li>{% else %}
-								<li><a class="" href="{% url 'q_tarih' %}">Қазақстан тарихы</a></li>{% endif %}		
+							<ul> 
+								<!-- <li><a class="" href="{% url 'pro_tarih' %}">Қазақстан тарихы</a></li>  -->
+								<li><a class="" href="{% url 'q_tarih' %}">Қазақстан тарихы</a></li> 	
 								<li><a class="" href="{% url 'w_tarih' %}">Дүниежүзі тарихы</a></li>
 								<li><a class="" href="{% url 'physic' %}">Физика</a></li>						 
 							</ul>
