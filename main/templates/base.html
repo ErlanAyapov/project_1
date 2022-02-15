@@ -13,6 +13,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@1,300&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
 </head>
+<script type="text/javascript" src="{% static 'scripts/jquery-3.6.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'scripts/scripts.js' %}"></script>
 
 <script type="text/javascript">
 		myStorage = window.localStorage;
@@ -36,8 +38,6 @@
 		{% block content %}
 		{% endblock %}
 	</main>
- 
-
 	<div class="main-left-nav">
 			<div class="nav-header">
 				<h3>Нұсқаулықтар</h3>
@@ -52,12 +52,12 @@
 			<nav>
 				<ul>
 					<li><a class="" href="{% url 'main' %}">Басты парақ</a></li>
-					<!-- <li><a class="" href="https://www.instagram.com/erlans.kingdom/" target="_blank">Instagram</a></li> -->
 					<li>
 						<details>
 							<summary>Сабақ қайталау</summary>
-							<ul>
-								<li><a class="" href="{% url 'q_tarih' %}">Қазақстан тарихы</a></li>
+							<ul>{% if request.user.is_authenticated %}
+								<li><a class="" href="{% url 'pro_tarih' %}">Қазақстан тарихы</a></li>{% else %}
+								<li><a class="" href="{% url 'q_tarih' %}">Қазақстан тарихы</a></li>{% endif %}		
 								<li><a class="" href="{% url 'w_tarih' %}">Дүниежүзі тарихы</a></li>
 								<li><a class="" href="{% url 'physic' %}">Физика</a></li>						 
 							</ul>
@@ -66,14 +66,11 @@
 					{% if not request.user.is_authenticated %}
 				 		<li><a class="" href="{% url 'members' %}">Аккаунт</a></li>
 				 	{% else %}
-				 		
 				 		<li><a class="" href="{% url 'users' %}">Қолданушылар</a></li>
 						<li><a class="" href="{% url 'post_add' %}">Жаңалық қосу</a></li>
-					{% endif %}
-					
+					{% endif %}					
 					<li><a class="disabled" href="#/">Досымды қос</a></li>
-					<li><a class="disabled" href="#/">Дайындық</a></li>
-					 
+					<li><a class="disabled" href="#/">Дайындық</a></li>	 
 				</ul>
 			</nav>
 				{% if request.user.is_authenticated %}
@@ -88,6 +85,12 @@
 						<a href="{% url 'logout' %}">шығу</a>
 					</div>
 				</div>
+				{% else %}
+				<div class="about-text">
+					<div class="user-nav-name-block">
+						<a id="switch_mod" style="cursor:pointer;">Дизайн ауыстыру</a>
+					</div>
+				</div>
 				{% endif %}
 			
 <!-- Product by: <a href="https://wa.me/+77478160485?text=Сәлем%2C+https://alternative-tarih.herokuapp.com/+осы+сайт+бойынша+сұрағым+бар+еді?" color='blue' target="_blank">Erlan Aiapov</a> 
@@ -100,13 +103,7 @@
 			<p class="btn" id="open_menu" >☰</p>
 		</div>
 	<script type="text/javascript" src="{% static 'scripts/html2canvas.js' %}"></script>
-	<script type="text/javascript" src="{% static 'scripts/jquery-3.6.0.min.js' %}"></script>
-	{% if user.is_authenticated %}
-	<script type="text/javascript" src="{% static 'scripts/qz_tarih.js' %}"></script>
-	{% else %}
-	<script type="text/javascript" src="{% static 'scripts/not_auth.js' %}"></script>
-	{% endif %}
-	<script type="text/javascript" src="{% static 'scripts/scripts.js' %}"></script>
+	
 
 	<script type="text/javascript">
 		jQuery('#close_menu').on('click', function() {
@@ -120,12 +117,12 @@
 			$("#open_menu").css("display", 'none');	
 		});
 
-		let switch_button = document.getElementById('switch_mod')
+		// let switch_button = document.getElementById('switch_mod')
 		
 		
 
 
-		switch_button.onclick = function () {
+		jQuery('#switch_mod').on('click', function() {
 		    let theme = document.getElementById('theme')
 		    if (theme.getAttribute("href") == "{% static 'style/style.css' %}") {
 		    	theme.href = "{% static 'style/dark-style.css' %}"
@@ -136,7 +133,7 @@
 		    	localStorage.clear();
 		    	localStorage.setItem('mod', 'light')
 		    }
-		}
+		});
 	</script>
 </body>
 </html>

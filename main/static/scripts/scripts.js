@@ -1,4 +1,6 @@
-
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 jQuery(document).ready(function($) {
     window.realAlert=window.alert
     window.alert=function(s){
@@ -36,21 +38,16 @@ function encodeImageFileAsURL(element, input_id) {
         $("#blah").css("display", 'block');
         $("#btn_upd").css("display", 'block');
     }
-    reader.readAsDataURL(file);
-    // reader.readAsDataURL(element.files[0]);        
+    reader.readAsDataURL(file);      
 }
 
 function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#blah')
-                    .attr('src', e.target.result)
-                    // .width(150)
-                    // .height(200);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah')
+                .attr('src', e.target.result)
+        };
+        reader.readAsDataURL(input.files[0]);
     }
+}

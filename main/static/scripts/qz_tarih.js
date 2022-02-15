@@ -55,9 +55,7 @@ document.getElementById('all_questions').innerHTML =  'Барлығы: '  + 0
 document.getElementById('false_questions').innerHTML = 'Қате: ' + false_questions.length
 
 run = true
-function getRandomInt(max) {
-	return Math.floor(Math.random() * max);
-}
+
 // Жұмыс жасау принціпі
 // Djinja шаблонизаторының циклімен деректер қорынан
 // сұрақтарды алып 'questions' массивіне жинақтайды
@@ -153,7 +151,7 @@ function make_question() {
 	 
 	
 	// Функцияның 4-ші бөлігі
-	function check_1() {
+	jQuery('#block_1').on('click', function() {
 		if (document.getElementById('answer_1').value == answers[question_id]) {
 			alert('Дұрыс!');
 			true_qestions.push(question_id)	
@@ -169,8 +167,8 @@ function make_question() {
 			document.getElementById('id_false_answers').value = false_answers_textarea;
 
 					 
-		}
-	function check_2() { 
+		})
+	jQuery('#block_2').on('click', function() { 
 		if (document.getElementById('answer_2').value == answers[question_id]) {
 			true_qestions.push(question_id)	
 			alert('Дұрыс!');	
@@ -186,8 +184,8 @@ function make_question() {
 			}
 			document.getElementById('id_false_answers').value = false_answers_textarea;
 
-		}
-	function check_3() { 
+		})
+	jQuery('#block_3').on('click', function() { 
 		if (document.getElementById('answer_3').value == answers[question_id]) {
 			true_qestions.push(question_id)	
 			alert('Дұрыс!');	
@@ -203,8 +201,8 @@ function make_question() {
 		}
 			document.getElementById('id_false_answers').value = false_answers_textarea;
 
-	}
-	function check_4() { 
+	})
+	jQuery('#block_4').on('click', function() { 
 		if (document.getElementById('answer_4').value == answers[question_id]) {
 			true_qestions.push(question_id)	
 			alert('Дұрыс!');	
@@ -220,4 +218,4 @@ function make_question() {
 		}
 			document.getElementById('id_false_answers').value = false_answers_textarea;
 
-	}; 
+	}); 

@@ -1,44 +1,49 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block page_title %}Қазақстан тарихы{% endblock %}
 {% block content %}
-	<div class="main-container">
-		{% include 'courses/task_body.html' %}
-		<div class="next-btn">
-			{% if user.is_authenticated %}
-			<form action="{% url 'progress_save' request.user.id %}" method="POST">
-				{% csrf_token %}
-				<input class="hide_me" type="" name="user" required id="id_user" value="{{ request.user.id }}">
-				<input class="hide_me" type="" name="course" id="id_course" value="Қазақстан тарихы">
-				<input class="hide_me" type="number" name="result_all" required id="id_result_all" value="">
-				<input class="hide_me" type="number" name="result_true" required id="id_result_true">
-				<input class="hide_me" type="number" name="result_false" required id="id_result_false">
-				<textarea class="hide_me" name="false_answers" id="id_false_answers"></textarea>
-				<input type="submit" name="" id="run_btn" value="Нәтижені сақтау">
-			</form>
-			{% endif %}
-		</div>
-		<script type="text/javascript">
-			var questions = [];
-			var answers = [];
-			var last_questions = [];
-			var true_qestions = [];
-			var false_questions = [];
-			var tasks = [];
-			var run = true;
-			var question_id;
-			// {% for qazaqstan_tarihy in object_list %}
-			var question = '{{ qazaqstan_tarihy.question }}';
-			var answer = '{{ qazaqstan_tarihy.answer }}';
-			questions.push(question)
-			answers.push(answer)
-			// {% endfor %}	
-		</script>
-	</div>
+<script type="text/javascript">
+	var questions = [];
+	var answers = [];
+	var last_questions = [];
+	var true_qestions = [];
+	var false_questions = [];
+	var tasks = [];
+	var run = true;
+	var question_id;
+	// {% for qazaqstan_tarihy in object_list %}
+	var question = '{{ qazaqstan_tarihy.question }}';
+	var answer = '{{ qazaqstan_tarihy.answer }}';
+	questions.push(question)
+	answers.push(answer)
+	// {% endfor %}	
+</script>
+
+<div class="main-container">
+	{% include 'courses/task_body.html' %}
+	<div class="next-btn">
+	{% if user.is_authenticated %}
+		<form action="{% url 'progress_save' request.user.id %}" method="POST">
+	{% csrf_token %}
+		<input class="hide_me" type="" name="user" required id="id_user" value="{{ request.user.id }}">
+		<input class="hide_me" type="" name="course" id="id_course" value="Қазақстан тарихы">
+		<input class="hide_me" type="number" name="result_all" required id="id_result_all" value="">
+		<input class="hide_me" type="number" name="result_true" required id="id_result_true">
+		<input class="hide_me" type="number" name="result_false" required id="id_result_false">
+		<textarea class="hide_me" name="false_answers" id="id_false_answers"></textarea>
+		<input type="submit" name="" id="run_btn" value="Нәтижені сақтау">
+		</form>
+	{% endif %}
+	</div>		
+</div>
+{% if user.is_authenticated %}
+<script type="text/javascript" src="{% static 'scripts/qz_tarih.js' %}"></script>
+{% else %}
+<script type="text/javascript" src="{% static 'scripts/not_auth.js' %}"></script>
+{% endif %}
 {% endblock %}
-{% block footer %}
-<!-- 
-	<div class="footer-container">
-		<small><strong>Сұрақты дайындаған: </strong>Дінмұхамед Төлеген</small>
-	</div> -->
+
+
+{% block footer %} 
 
 {% endblock %}

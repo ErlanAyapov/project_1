@@ -65,11 +65,7 @@
 		<div class="post-container">
 		{% for post in posts %}
 		{% if post.author.id == user.id %}
-			<div class="post-block">
-				
-				<!-- <div class="post-title">
-					<h2>{{ post.title }}</h2>
-				</div> -->
+			<div class="post-block"> 
 				<div class="post-body">
 					<br>
 					{{ post.body }}
@@ -86,56 +82,5 @@
 
 			</div>
 		{% endif %}
-
-		{% endfor %}
-	
-	<!-- <div class="profile-container">
-		<div class="profile-block">
-			
-			<div class="profile-info">
-				<h2>{{ user.first_name }} {{ user.last_name }}</h2>
-				<p>@{{ user.username }}</p>
-				<p>Туылғанкүн {{ user.customer.birth_mounth }} {{ user.customer.birth_day }}, {{ user.customer.birth_year }} жыл</p>
-				{% if request.user.id == user.id %}
-				<div>
-					<a href="{% url 'user_picture_update' request.user.id %}">Сурет өзгерту</a>
-				</div>
-				{% endif %}
-				<div class="result-block-profile">
-					<details>
-						<summary style="cursor: pointer; padding: 20px;"><h3>Нәтиже</h3></summary>
-						<table class="">
-							<tr>
-								<th>Сабақ</th> 
-								<th>Барлығы</th> 
-								<th>Дұрыс</th> 
-								<th>Қате</th>
-								<th>Қате сұрақтар</th>
-							</tr>
-						{% for last_progress in last_progress %}
-						{% if last_progress.user.id == user.id %}
-						<tr>
-							<td colspan="1" style="text-align:center;">{{ last_progress.course }}</td>
-							<td colspan="1" style="text-align:center;">{{ last_progress.result_all }}</td>
-							<td colspan="1" style="text-align:center;">{{ last_progress.result_true }}</td>
-							<td colspan="1" style="text-align:center;">{{ last_progress.result_false }}</td>
-							<td colspan="1" style="text-align:center;">
-								<a href="{% url 'user_progress' last_progress.id %}">КӨРУ</a>
-							</td>
-						</tr>	 
-						{% endif %}
-						{% endfor %}
-						</table>
-					</details>
-					
-				</div>
-				 	
-			</div>
- 
-
-		</div>
-	</div> -->
-
-
-
+	{% endfor %}
 {% endblock %}
