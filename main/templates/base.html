@@ -56,8 +56,8 @@
 						<details>
 							<summary>Сабақ қайталау</summary>
 							<ul> 
-								<!-- <li><a class="" href="{% url 'pro_tarih' %}">Қазақстан тарихы</a></li>  -->
-								<li><a class="" href="{% url 'q_tarih' %}">Қазақстан тарихы</a></li> 	
+								<li><a class="" href="{% url 'pro_tarih' %}">Қазақстан тарихы <span class="pro_cource"></span></a></li> 
+								<!-- <li><a class="" href="{% url 'q_tarih' %}">Қазақстан тарихы</a></li> 	 -->
 								<li><a class="" href="{% url 'w_tarih' %}">Дүниежүзі тарихы</a></li>
 								<li><a class="" href="{% url 'physic' %}">Физика</a></li>						 
 							</ul>
@@ -97,13 +97,11 @@
 <a class="" id="switch_mod" style="cursor: pointer;">
 			Дизайн ауыстыру</a>
 -->
-
 		</div>
 		<div class="ds">
 			<p class="btn" id="open_menu" >☰</p>
 		</div>
-	<script type="text/javascript" src="{% static 'scripts/html2canvas.js' %}"></script>
-	
+	<script type="text/javascript" src="{% static 'scripts/html2canvas.js' %}"></script>	
 
 	<script type="text/javascript">
 		jQuery('#close_menu').on('click', function() {

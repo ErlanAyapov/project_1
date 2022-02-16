@@ -10,9 +10,9 @@ function rendering_questions() {
 			run = false;
 		}
 	}
-	var cs = getRandomInt(4);
+	var cs = getRandomInt(3);
 	if (cs == 1){
-		document.getElementById('block_1').innerHTML = answers_1[question_id];
+		document.getElementById('block_1').innerHTML = answers_4[question_id];
 		document.getElementById('block_2').innerHTML = answers_2[question_id];
 		document.getElementById('block_3').innerHTML = answers_3[question_id];
 		document.getElementById('answer_4').value = answers_1[question_id];
@@ -110,14 +110,15 @@ function rendering_questions() {
 			true_qestions.push(question_id)	
 			alert('Дұрыс!');	
 			rendering_questions();
-			false_answers_number++
-			false_answers_textarea += '<li>' + false_answers_number + ') ' + questions[question_id] + '? </li>';
-
+			
 		}
 		else {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
 			rendering_questions();
+			false_answers_number++
+			false_answers_textarea += '<li>' + false_answers_number + ') ' + questions[question_id] + '? </li>';
+
 		}
 			document.getElementById('id_false_answers').value = false_answers_textarea;
 

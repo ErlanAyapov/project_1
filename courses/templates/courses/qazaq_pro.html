@@ -25,41 +25,11 @@
 	answers_2.push(answer_2)
 	answers_3.push(answer_3)
 	answers_4.push(answer_4)
-	// {% endfor %}	
-	
+	// {% endfor %}
 </script>
 	<div class="main-container">
 		{% if object_list %}
-
-		<div class="main-block">
-			<div id="ds"></div>
-			<h1>Сұрақтар</h1>
-			<div id="question">Сұрақтар жүктелуде, Сабыр...</div>
-			<div class="question-block">
-				<label>
-					<input style="display:none" type="button" name="" id="answer_1" value="Жауап 1">
-					<div class="answers" id="block_1">Жауап</div>
-				</label>
-				<label>
-					<input style="display:none" type="button" name="" id="answer_2" value="Жауап 1">
-					<div class="answers" id="block_2">Жауап</div>
-				</label>
-				<label>
-					<input style="display:none" type="button" name="" id="answer_3" value="Жауап 1">
-					<div class="answers" id="block_3">Жауап</div>
-				</label>
-				<label>
-					<input style="display:none" type="button" name="" id="answer_4" value="Жауап 1">
-					<div class="answers" id="block_4">Жауап</div>
-				</label>	
-			</div>
-
-			<div class="result-block">
-				<div class="res" id="all_questions">0</div>
-				<div class="res" id="true_questions">0</div>
-				<div class="res" id="false_questions">-0</div>
-			</div>
-		</div>
+			{% include 'courses/task_body.html' %}
 		{% endif %}
 
 		<div class="next-btn">
@@ -78,8 +48,11 @@
 		</div>
 		
 	</div>
+{% if user.is_authenticated %}
 <script type="text/javascript" src="{% static 'scripts/tarih_pro.js' %}"></script>
-
+{% else %}
+<script type="text/javascript" src="{% static 'scripts/not_auth_pro.js' %}"></script>
+{% endif %}
 {% endblock %}
 {% block footer %}
 
