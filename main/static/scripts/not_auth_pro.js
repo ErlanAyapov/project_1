@@ -10,7 +10,7 @@ function rendering_questions() {
 			run = false;
 		}
 	}
-	var cs = getRandomInt(3);
+	var cs = getRandomInt(4);
 	if (cs == 1){
 		document.getElementById('block_1').innerHTML = answers_4[question_id];
 		document.getElementById('block_2').innerHTML = answers_2[question_id];
@@ -36,16 +36,15 @@ function rendering_questions() {
 		document.getElementById('answer_1').value = answers_1[question_id];
 		document.getElementById('block_1').innerHTML = answers_1[question_id];
 	}	
+	
 	var question_el = document.getElementById('question');
 	question_el.innerHTML = (questions[question_id]) + ' ?';
 	document.getElementById('true_questions').innerHTML = 'Дұрыс: ' + true_qestions.length
 	
 	if (last_questions.length == 1){
-		document.getElementById('all_questions').innerHTML = 'Барлығы: 0'
-		
-	}else {
+		document.getElementById('all_questions').innerHTML = 'Барлығы: 0'		
+	} else {
 		document.getElementById('all_questions').innerHTML = 'Барлығы: ' + (last_questions.length - 1)
-		
 	}
 	
 	document.getElementById('false_questions').innerHTML = 'Қате: ' + false_questions.length
@@ -67,11 +66,8 @@ function rendering_questions() {
 		else {
 			false_questions.push(question_id)
 			alert('Дұрыс емес :(')
-			rendering_questions();
-			false_answers_number++
-			
-			}
-						 
+			rendering_questions();			
+			}					 
 		})
 	jQuery('#block_2').on('click', function() { 
 		if (document.getElementById('answer_2').value == answers_1[question_id]) {
@@ -82,10 +78,7 @@ function rendering_questions() {
 		else {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
-			rendering_questions();
-			false_answers_number++
-			
-
+			rendering_questions();					
 			}
 			
 		})
@@ -98,10 +91,7 @@ function rendering_questions() {
 		else {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
-			rendering_questions();
-			false_answers_number++
-			
-
+			rendering_questions();		
 		}
 			
 	})
@@ -109,20 +99,13 @@ function rendering_questions() {
 		if (document.getElementById('answer_4').value == answers_1[question_id]) {
 			true_qestions.push(question_id)	
 			alert('Дұрыс!');	
-			rendering_questions();
-			
-			
-
+			rendering_questions();		
 		}
 		else {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
-			rendering_questions();
-			false_answers_number++
-			
-		}
-			
-
+			rendering_questions();		
+		}			
 	}); 
 
 

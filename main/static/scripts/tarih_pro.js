@@ -67,9 +67,10 @@ function rendering_questions() {
 		else {
 			false_questions.push(question_id)
 			alert('Дұрыс емес :(')
-			rendering_questions();
+			
 			false_answers_number++
 			false_answers_textarea += '<li>' + false_answers_number + ') ' + questions[question_id] + '? </li>';
+			rendering_questions();
 			}
 			document.getElementById('id_false_answers').value = false_answers_textarea;				 
 		})
@@ -82,10 +83,10 @@ function rendering_questions() {
 		else {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
-			rendering_questions();
+			
 			false_answers_number++
 			false_answers_textarea += '<li>' + false_answers_number + ') ' + questions[question_id] + '? </li>';
-
+			rendering_questions();
 			}
 			document.getElementById('id_false_answers').value = false_answers_textarea;
 		})
@@ -98,10 +99,9 @@ function rendering_questions() {
 		else {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
-			rendering_questions();
 			false_answers_number++
 			false_answers_textarea += '<li>' + false_answers_number + ') ' + questions[question_id] + '? </li>';
-
+			rendering_questions();
 		}
 			document.getElementById('id_false_answers').value = false_answers_textarea;
 	})
@@ -115,10 +115,9 @@ function rendering_questions() {
 		else {
 			false_questions.push(question_id)	
 			alert('Дұрыс емес :(')
-			rendering_questions();
 			false_answers_number++
 			false_answers_textarea += '<li>' + false_answers_number + ') ' + questions[question_id] + '? </li>';
-
+			rendering_questions();
 		}
 			document.getElementById('id_false_answers').value = false_answers_textarea;
 
