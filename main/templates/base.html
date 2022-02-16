@@ -4,7 +4,7 @@
 <head>
 	<title>Brain Training</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" id="theme">
+	<link rel="stylesheet" type="text/css" href="{% static 'style/dark-style.css' %}" id="theme">
 	<link rel="stylesheet" type="text/css" href="{% static 'style/responsive.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'style/demo.css' %}">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,11 +19,11 @@
 <script type="text/javascript">
 		myStorage = window.localStorage;
 		let mod = localStorage.getItem('mod') 
-		if (mod == 'light') {
-		    theme.href = "{% static 'style/style.css' %}"
+		if (mod == 'dark') {
+		    theme.href = "{% static 'style/dark-style.css' %}"
 			
 		} else {
-		    theme.href = "{% static 'style/dark-style.css' %}"
+		    theme.href = "{% static 'style/style.css' %}"
 
 		}
 	</script>
@@ -122,14 +122,14 @@
 
 		jQuery('#switch_mod').on('click', function() {
 		    let theme = document.getElementById('theme')
-		    if (theme.getAttribute("href") == "{% static 'style/style.css' %}") {
-		    	theme.href = "{% static 'style/dark-style.css' %}"
-		    	localStorage.clear();
-		    	localStorage.setItem('mod', 'dark')
-		    } else {
+		    if (theme.getAttribute("href") == "{% static 'style/dark-style.css' %}") {
 		    	theme.href = "{% static 'style/style.css' %}"
 		    	localStorage.clear();
 		    	localStorage.setItem('mod', 'light')
+		    } else {
+		    	theme.href = "{% static 'style/dark-style.css' %}"
+		    	localStorage.clear();
+		    	localStorage.setItem('mod', 'dark')
 		    }
 		});
 	</script>
