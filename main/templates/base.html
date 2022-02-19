@@ -15,16 +15,14 @@
 </head>
 <script type="text/javascript" src="{% static 'scripts/jquery-3.6.0.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'scripts/scripts.js' %}"></script>
-
+<script src="https://kit.fontawesome.com/e9b4a4c6c5.js" crossorigin="anonymous"></script>
 <script type="text/javascript">
 		myStorage = window.localStorage;
 		let mod = localStorage.getItem('mod') 
 		if (mod == 'dark') {
-		    theme.href = "{% static 'style/dark-style.css' %}"
-			
+		    theme.href = "{% static 'style/dark-style.css' %}"	
 		} else {
 		    theme.href = "{% static 'style/style.css' %}"
-
 		}
 	</script>
 <body>
@@ -38,6 +36,10 @@
 		{% block content %}
 		{% endblock %}
 	</main>
+	<footer>
+		{% block footer %}
+		{% endblock %}
+	</footer>
 	<div class="main-left-nav">
 			<div class="nav-header">
 				<h3>Нұсқаулықтар</h3>
@@ -51,10 +53,10 @@
 			</style>
 			<nav>
 				<ul>
-					<li><a class="" href="{% url 'main' %}">Басты парақ</a></li>
+					<li><a class="" href="{% url 'main' %}"><i class="fas fa-home"></i> Басты парақ</a></li>
 					<li>
 						<details>
-							<summary>Сабақ қайталау</summary>
+							<summary><i class="fas fa-graduation-cap"></i> Сабақ қайталау</summary>
 							<ul> 
 								<li><a class="" href="{% url 'pro_tarih' %}">Қазақстан тарихы <span class="pro_cource"></span></a></li> 
 								<!-- <li><a class="" href="{% url 'q_tarih' %}">Қазақстан тарихы</a></li> 	 -->
@@ -64,13 +66,13 @@
 						</details>
 					</li>
 					{% if not request.user.is_authenticated %}
-				 		<li><a class="" href="{% url 'members' %}">Аккаунт</a></li>
+				 		<li><a class="" href="{% url 'members' %}"><i class="fas fa-sign-in-alt"></i> Аккаунт</a></li>
 				 	{% else %}
-				 		<li><a class="" href="{% url 'users' %}">Қолданушылар</a></li>
-						<li><a class="" href="{% url 'post_add' %}">Жаңалық қосу</a></li>
+				 		<li><a class="" href="{% url 'users' %}"><i class="fas fa-users"></i> Қолданушылар</a></li>
+						<li><a class="" href="{% url 'post_add' %}"><i class="fas fa-plus"></i> Жаңалық қосу</a></li>
 					{% endif %}					
-					<li><a class="disabled" href="#/">Досымды қос</a></li>
-					<li><a class="disabled" href="#/">Дайындық</a></li>	 
+					<!-- <li><a class="disabled" href="#/">Досымды қос</a></li> -->
+					<!-- <li><a class="disabled" href="#/">Дайындық</a></li>	  -->
 				</ul>
 			</nav>
 				{% if request.user.is_authenticated %}
