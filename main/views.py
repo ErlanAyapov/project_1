@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DeleteView
 from members.models import UserPicture
+from django.urls import reverse_lazy
 from .forms import PostCreateForm
 from .models import Post
 import datetime
@@ -10,7 +11,7 @@ import datetime
 class PostDeleteView(DeleteView):
 	model = Post
 	template_name = 'main/post_delete.html'
-	success_url = HttpResponseRedirect('/')
+	success_url = reverse_lazy('main')
 
 
 class MainView(ListView):

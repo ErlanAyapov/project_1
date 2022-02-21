@@ -40,16 +40,10 @@
 						<div class="post-author">
 						{{ post.author.first_name }} {{ post.author.last_name }}
 						</div>
-						{% if request.user.id == post.author.id %}
-						<!-- <div>
-							<form action="{% url 'post_delete' post.id %}" method="POST">
-								{% csrf_token %}
-								<button type="submit">ЖОЮ</button>
-								 
-								
-							</form>
-						</div> -->
-						{% endif %}
+						
+						<div class="post-date">
+							{{ post.date|slice:":16" }}	
+						</div>
 					</a>
 				</div>
 				<!-- <div class="post-title">
@@ -65,17 +59,18 @@
 				</div>
 				{% endif %}
 				<div class="info">
-					{{ post.date|slice:":16" }}
+					{% if request.user.id == post.author.id %}
+						<form action="{% url 'post_delete' post.id %}" method="POST">
+							{% csrf_token %}
+							<button type="submit">ЖОЮ</button>								
+						</form>
+					{% endif %}
 				</div>
 			</div>
 		{% endfor %}
 		{% endif %}
 		
 	{% endif %}	
-{% endblock %}
-
-{% block footer %}
-	<div><h2>©</h2></div>
 {% endblock %}
 
 <!-- https://www.instagram.com/erlans.kingdom/ -->
